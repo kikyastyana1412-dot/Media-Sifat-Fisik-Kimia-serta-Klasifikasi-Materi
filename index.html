@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14232e">
+<title>Kimia Itu Dekat! Sifat dan Klasifikasi Materi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14232e;--mut:#55697a;--paper:#f4f8fa;--grid:#dbe6ec;--line:#b9c9d4;--soft:#eaf1f5;
+  --ok:#1d7a45;--okbg:#ddf4e5;--bad:#b3261e;--badbg:#fde7e5;--gold:#f2b705;
+  --c-unsur:#0f9d8a;--c-senyawa:#4c5fd5;--c-homogen:#f2b705;--c-heterogen:#e8731a;--c-campuran:#f2b705;--c-fisik:#1f86cc;--c-kimia:#e5484d;
+  --fh:"Bricolage Grotesque","Trebuchet MS","Segoe UI",system-ui,sans-serif;
+  --fb:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+}
+[data-g=buka]{--tc:#5b7a99;--tt:#fff;--ac:#5b7a99}
+[data-g=tes]{--tc:#f2b705;--tt:#14232e;--ac:#d9a400}
+[data-g=m1]{--tc:#1f86cc;--tt:#fff;--ac:#1f86cc}
+[data-g=m2]{--tc:#c2255c;--tt:#fff;--ac:#c2255c}
+[data-g=tutup]{--tc:#23844f;--tt:#fff;--ac:#23844f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:17px/1.6 var(--fb);padding-bottom:84px;
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px}
+h1,h2,h3{font-family:var(--fh);letter-spacing:-.01em;margin:0}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.nd:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* ---------- kepala dan deretan petak ---------- */
+.top{background:var(--ink);color:#fff;padding:12px 14px 0}
+.top .row{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.brand{font:800 18px/1 var(--fh);letter-spacing:-.01em}
+.who{font-size:14px;color:#c4d3de;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+nav#tiles{position:sticky;top:0;z-index:20;background:var(--ink);display:flex;gap:6px;overflow-x:auto;padding:12px max(14px,calc((100% - 760px)/2)) 12px;scrollbar-width:none}
+nav#tiles::-webkit-scrollbar{display:none}
+.tile{position:relative;flex:0 0 auto;width:46px;height:52px;border:0;border-radius:6px;background:var(--tc);color:var(--tt);cursor:pointer;font-family:var(--fh);opacity:.74;transition:opacity .15s,transform .15s}
+.tile:hover{opacity:.9}
+.tile .n{position:absolute;top:4px;left:5px;font:700 9.5px/1 var(--fb)}
+.tile .s{display:block;font-weight:800;font-size:20px;line-height:52px;text-align:center;letter-spacing:-.02em}
+.tile .ck{position:absolute;top:3px;right:4px;font:700 10px/1 var(--fb);display:none}
+.tile.done .ck{display:block}
+.tile.on{opacity:1;transform:translateY(-3px);box-shadow:0 0 0 3px #fff}
+.tile:disabled{opacity:.25;cursor:not-allowed}
+.crumb{max-width:760px;margin:0 auto;padding:12px 14px 0;display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--mut)}
+.crumb b{color:var(--ink);font-family:var(--fh);font-size:15px}
+
+/* ---------- lembar ---------- */
+main.sheet{max-width:760px;margin:10px auto 0;background:#fff;border:2px solid var(--ink);border-radius:8px;box-shadow:6px 6px 0 rgba(20,35,46,.16);padding:20px 18px 24px}
+@media(max-width:800px){main.sheet{margin:10px 12px 0}}
+.fade{animation:fade .25s ease}
+@keyframes fade{from{opacity:.0}to{opacity:1}}
+.hd{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.mk{flex:0 0 auto;width:46px;height:52px;border-radius:6px;background:var(--tc);color:var(--tt);font:800 20px/52px var(--fh);text-align:center;letter-spacing:-.02em}
+h2{font-size:26px;line-height:1.15}
+h3{font-size:18px;line-height:1.25;margin-bottom:6px}
+.grp{margin:2px 0 0;font-size:14px;color:var(--mut)}
+.lead{font-size:18px;color:#2d4556;margin:6px 0 14px;max-width:62ch}
+p{margin:8px 0}
+section.blk{margin:22px 0 0}
+section.blk>h3{border-bottom:2px solid var(--ink);padding-bottom:4px;margin-bottom:10px}
+ul.plain,ol.plain{padding-left:22px;margin:6px 0}
+ul.plain li,ol.plain li{margin:4px 0}
+.note{border-left:6px solid var(--ac,var(--tc));background:var(--soft);padding:10px 14px;margin:14px 0;border-radius:0 8px 8px 0}
+.note.warn{border-left-color:var(--gold);background:#fff7d6}
+.note p:first-child{margin-top:0}.note p:last-child{margin-bottom:0}
+small,.sm{font-size:14px;color:var(--mut)}
+
+/* ---------- beranda ---------- */
+.hero{display:flex;gap:18px;align-items:center;margin:4px 0 6px}
+.bigtile{position:relative;flex:0 0 auto;width:96px;height:108px;border-radius:10px;background:var(--ink);color:#fff;box-shadow:5px 5px 0 var(--gold)}
+.bigtile .n{position:absolute;top:8px;left:10px;font:700 14px/1 var(--fb)}
+.bigtile .s{position:absolute;left:0;right:0;top:26px;text-align:center;font:800 52px/1 var(--fh);letter-spacing:-.04em}
+.bigtile .m{position:absolute;left:0;right:0;bottom:9px;text-align:center;font:700 12px/1 var(--fb);color:#c4d3de}
+h1{font-size:clamp(34px,9vw,52px);line-height:1;font-weight:800;letter-spacing:-.03em}
+ul.goals{list-style:none;padding:0;margin:8px 0}
+ul.goals li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--grid)}
+ul.goals li i{width:28px;height:28px;border-radius:5px;background:var(--tc);color:var(--tt);font:800 13px/28px var(--fh);text-align:center;font-style:normal}
+ol.path{list-style:none;margin:8px 0;padding:0;position:relative}
+ol.path li{position:relative;display:grid;grid-template-columns:38px 1fr;gap:12px;padding:0 0 14px}
+ol.path li::before{content:"";position:absolute;left:18px;top:34px;bottom:0;width:2px;background:var(--line)}
+ol.path li:last-child::before{display:none}
+ol.path li i{width:38px;height:38px;border-radius:6px;background:var(--tc);color:var(--tt);font:800 15px/38px var(--fh);text-align:center;font-style:normal}
+ol.path b{font-family:var(--fh)}
+
+/* ---------- form dan tombol ---------- */
+label{display:block;font-weight:700;margin:12px 0 4px}
+input[type=text],input[type=number],select,textarea{width:100%;padding:10px 12px;border:2px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:inline-block;background:var(--ink);color:#fff;border:2px solid var(--ink);border-radius:8px;padding:10px 18px;font:700 16px/1.2 var(--fh);cursor:pointer;margin:8px 8px 0 0;box-shadow:3px 3px 0 var(--ac,var(--tc,#5b7a99));transition:transform .08s,box-shadow .08s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ac,#5b7a99)}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ac)}
+.btn.alt{background:#fff;color:var(--ink)}
+.btn.warm{background:var(--gold);color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;transform:none}
+.hidden{display:none!important}
+.chip{border:2px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font:700 15px/1.2 var(--fb);cursor:pointer;margin:6px 6px 0 0;color:var(--ink)}
+.chip:hover:not(:disabled){border-color:var(--ink)}
+.chip.mini{font-size:13px;padding:6px 10px}
+.chip.sel{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.sel.c-fisik{background:var(--c-fisik);border-color:var(--c-fisik)}
+.chip.sel.c-kimia{background:var(--c-kimia);border-color:var(--c-kimia)}
+.chip.sel.c-unsur{background:var(--c-unsur);border-color:var(--c-unsur)}
+.chip.sel.c-senyawa{background:var(--c-senyawa);border-color:var(--c-senyawa)}
+.chip.sel.c-campuran{background:var(--c-campuran);border-color:#c99700;color:var(--ink)}
+.chip:disabled{cursor:default}
+.reveal{display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:8px;padding:12px 14px;margin:8px 0;cursor:pointer;font:inherit;color:inherit}
+.reveal:hover{border-color:var(--ink)}
+.reveal .rt{font:700 16px var(--fh)}
+.reveal .rb{display:none;margin-top:6px}
+.reveal .hint{font-size:13px;color:var(--mut)}
+.reveal.open{border-color:var(--ink);background:#fffbe8}
+.reveal.open .rb{display:block}
+.reveal.open .hint{display:none}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-family:var(--fh)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.box{border:2px solid var(--ink);border-radius:8px;padding:10px 12px}
+.box.f{background:#e3f2fc;border-color:var(--c-fisik)}
+.box.k{background:#fde8e8;border-color:var(--c-kimia)}
+.box b{font-family:var(--fh)}
+
+/* ---------- pengamatan dan sorter ---------- */
+.item{border:2px solid var(--line);border-radius:8px;padding:12px;margin:10px 0;background:#fff}
+.item.locked{background:#fafcfd}
+.ihead{display:flex;gap:10px;align-items:flex-start}
+.ihead p{margin:2px 0 0;color:var(--mut);font-size:15px}
+.ico{font-size:28px;line-height:1.2}
+.reason{margin-top:8px}
+.fb{margin-top:10px;border-radius:8px;padding:10px 12px;font-size:15.5px}
+.fb.ok{background:var(--okbg);color:#0c4a2c}
+.fb.bad{background:var(--badbg);color:#7a1b12}
+.score{font:800 46px/1 var(--fh);letter-spacing:-.03em}
+.score small{font-size:20px;color:var(--mut);font-weight:700}
+.status{font-size:14.5px;margin-top:10px;padding:8px 12px;border-radius:8px;background:var(--soft)}
+.status.ok{background:var(--okbg);color:#0c4a2c}
+.status.warn{background:#fff1c9;color:#6b4300}
+.matchrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;margin:8px 0}
+.matchrow.ok select{border-color:var(--ok);background:var(--okbg)}
+.matchrow.bad select{border-color:var(--bad);background:var(--badbg)}
+.steps{counter-reset:s;padding:0;list-style:none;margin:8px 0}
+.steps li{counter-increment:s;position:relative;padding:8px 8px 8px 44px;margin:6px 0;border:2px solid var(--line);border-radius:8px;background:#fff}
+.steps li::before{content:counter(s);position:absolute;left:10px;top:8px;width:26px;height:26px;border-radius:5px;background:var(--ink);color:#fff;text-align:center;font:800 14px/26px var(--fh)}
+
+/* ---------- diagram ---------- */
+.dg{width:100%;max-width:520px;height:auto;display:block;margin:8px auto}
+.dg text{font-family:var(--fb)}
+.nd{cursor:default}
+.nd[data-p]{cursor:pointer}
+.nd rect{fill:#fff;stroke:var(--ink);stroke-width:2;transition:stroke-width .12s}
+.nd .tm{font:800 12.5px var(--fh);text-anchor:middle;fill:var(--ink)}
+.nd .ts{font-size:9.5px;text-anchor:middle;fill:#3f5565}
+.nd.unsur .tm,.nd.senyawa .tm,.nd.homogen .tm,.nd.heterogen .tm{font-size:11px;letter-spacing:-.01em}
+.nd.root rect,.nd.start rect{fill:var(--ink)}
+.nd.root .tm,.nd.start .tm{fill:#fff}
+.nd.tunggal rect{fill:#e6eef5;stroke:#51657a}
+.nd.campuran rect{fill:#fff3cc;stroke:#b07d00}
+.nd.unsur rect{fill:#c9efe9;stroke:var(--c-unsur)}
+.nd.senyawa rect{fill:#dfe3ff;stroke:var(--c-senyawa)}
+.nd.homogen rect{fill:#fff0a8;stroke:#c99700}
+.nd.heterogen rect{fill:#ffd9bd;stroke:var(--c-heterogen)}
+.nd.q rect{fill:#ffe58a}
+.nd.fisik rect{fill:#d4ecfb;stroke:var(--c-fisik)}
+.nd.kimia rect{fill:#ffd9d9;stroke:var(--c-kimia)}
+.nd.sel rect{stroke-width:4.5}
+.nd[data-p]:hover rect{stroke-width:4}
+.nd.hl rect{stroke:#b07d00;stroke-width:4.5;fill:#fff0a8}
+.nd.hl.root rect,.nd.hl.start rect{fill:var(--ink)}
+.ed{fill:none;stroke:#3b5368;stroke-width:2.2;stroke-linejoin:round}
+.ed.hl{stroke:#d98b00;stroke-width:3.6;stroke-dasharray:7 5;animation:fl .8s linear infinite}
+@keyframes fl{to{stroke-dashoffset:-12}}
+.lbp rect{fill:#fff;stroke:#9db2c1}
+.lbp text{font-size:9.5px;font-weight:700;text-anchor:middle;fill:var(--ink)}
+.lbp.y rect{fill:#d9f5df;stroke:#2e9a4f}
+.lbp.t rect{fill:#ffdcdc;stroke:var(--c-kimia)}
+.tc{font-size:9.5px;text-anchor:middle;fill:var(--ink);font-weight:700}
+.te{font-size:9.5px;text-anchor:middle;fill:#55697a;font-style:italic}
+.dg.has-hl .nd:not(.hl),.dg.has-hl .ed:not(.hl),.dg.has-hl .lbp:not(.hl){opacity:.28}
+.panelbox{border:2px solid var(--ink);border-radius:8px;padding:12px 14px;margin-top:8px;background:#fff}
+.psvg{width:100%;max-width:340px;display:block;margin:8px auto}
+.legend{font-size:13px;color:var(--mut);text-align:center}
+
+/* ---------- soal format TKA ---------- */
+.tka-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.timer{font:800 15px/1 var(--fh);background:var(--ink);color:#fff;padding:8px 12px;border-radius:6px}
+.timer.low{background:var(--bad)}
+.timer.soft{background:var(--soft);color:var(--ink)}
+.cnt{font-size:14px;color:var(--mut)}
+.navgrid{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
+.nb{width:38px;height:38px;border-radius:6px;border:2px solid var(--line);background:#fff;font:800 14px var(--fh);cursor:pointer;color:var(--ink)}
+.nb.ans{background:var(--ink);border-color:var(--ink);color:#fff}
+.nb.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.nb.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.nb.cur{box-shadow:0 0 0 3px var(--gold)}
+.qcard{border:2px solid var(--ink);border-radius:8px;padding:14px;margin:10px 0;background:#fff}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.tag{font:700 12.5px/1 var(--fb);padding:5px 9px;border-radius:5px;border:2px solid var(--ink)}
+.tag.num{background:var(--ink);color:#fff}
+.tag.lvl{border-color:var(--line);color:var(--mut)}
+.stim{background:#f3f8fa;border-left:6px solid var(--ac,#5b7a99);padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:16px}
+.qtext{font-size:18px;margin:8px 0 2px;font-weight:700}
+.qins{font-size:14px;color:var(--mut);margin:0 0 8px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;border:2px solid var(--line);background:#fff;border-radius:8px;padding:10px 12px;font:inherit;cursor:pointer;color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt .let{flex:0 0 26px;height:26px;border-radius:5px;border:2px solid var(--line);font:800 13px/22px var(--fh);text-align:center}
+.opt.chk .let{border-radius:4px}
+.opt.sel{border-color:var(--ink);background:#eef4f8}
+.opt.sel .let{background:var(--ink);border-color:var(--ink);color:#fff}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.ok .let{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.bad{border-color:var(--bad);background:var(--badbg)}
+.opt.bad .let{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt .mk2{margin-left:auto;font-weight:800}
+.opt:disabled{cursor:default}
+table.bs td:nth-child(n+2),table.bs th:nth-child(n+2){text-align:center;width:76px;padding:6px}
+.tog{width:100%;border:2px solid var(--line);background:#fff;border-radius:6px;padding:6px 0;font:700 13px var(--fb);cursor:pointer;color:var(--ink)}
+.tog.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.tog.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.tog.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.tog:disabled{cursor:default}
+.kinds{list-style:none;padding:0;margin:8px 0}
+.kinds li{padding:8px 0 8px 14px;border-left:6px solid var(--gold);margin:8px 0;background:#fffbe8}
+.bar{height:12px;background:var(--soft);border:2px solid var(--ink);border-radius:6px;overflow:hidden;margin:4px 0 10px}
+.bar i{display:block;height:100%;background:var(--ink)}
+.cmp{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.cmp div{flex:1 1 120px;border:2px solid var(--ink);border-radius:8px;padding:8px 10px}
+.cmp b{display:block;font:800 26px/1.1 var(--fh)}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin:8px 0}
+.badge{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:center;font-size:14px;line-height:1.25}
+.badge i{width:44px;height:48px;border-radius:6px;border:2px dashed var(--line);color:var(--mut);font:800 18px/44px var(--fh);text-align:center;font-style:normal}
+.badge.got i{border:0;background:var(--tc);color:var(--tt);line-height:48px}
+
+/* ---------- bawah dan lainnya ---------- */
+.bottom{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:2px solid var(--ink);padding:10px 14px;z-index:30}
+.bottom .in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bottom .btn{margin:0;padding:10px 12px;font-size:15px}
+.bottom .mid{font:700 14px var(--fh);color:var(--mut)}
+#toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:50;font-size:14.5px;max-width:90%;opacity:0;pointer-events:none;transition:opacity .25s}
+#toast.show{opacity:1}
+footer.cr{max-width:760px;margin:10px auto 0;padding:0 14px;font-size:13px;color:var(--mut);text-align:center}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+.confetti i{position:absolute;top:-14px;width:9px;height:14px;animation:drop 2.4s ease-in forwards}
+@keyframes drop{to{transform:translateY(105vh) rotate(720deg);opacity:.9}}
+@media(max-width:560px){
+  table.bs,table.bs tbody{display:block}
+  table.bs tr:first-child{display:none}
+  table.bs tr{display:grid;grid-template-columns:1fr 1fr;gap:6px;border:2px solid var(--line);border-radius:8px;padding:10px;margin:8px 0}
+  table.bs td{border:0;padding:0}
+  table.bs td:first-child{grid-column:1/-1;padding-bottom:4px}
+  table.bs td:nth-child(n+2){width:auto;padding:0}
+}
+@media(max-width:560px){.two,.grid2,.matchrow{grid-template-columns:1fr}.who{max-width:50%}.hero{gap:14px}.bigtile{width:80px;height:92px}.bigtile .s{font-size:42px;top:22px}h2{font-size:23px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <marker id="arT" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3b5368"/></marker>
+  <marker id="arH" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#d98b00"/></marker>
+</defs></svg>
+<header class="top"><div class="row"><div class="brand">Kimia itu dekat</div><div class="who" id="who"></div></div></header>
+<nav id="tiles" aria-label="Daftar tab"></nav>
+<div class="crumb"><span id="crumb"></span><span id="proglabel"></span></div>
+<main class="sheet" id="view"></main>
+<footer class="cr" id="credit"></footer>
+<div class="bottom"><div class="in">
+  <button class="btn alt" id="prev">Tab sebelumnya</button>
+  <div class="mid" id="where"></div>
+  <button class="btn" id="next">Tab berikutnya</button>
+</div></div>
+<div id="toast" role="status"></div>
+<noscript><p style="padding:16px">Media ini membutuhkan JavaScript. Aktifkan JavaScript di peramban kamu.</p></noscript>
+
+<script>
+/* ================= PENGATURAN GURU (ubah di sini) ================= */
+const CONFIG = {
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycby0JfvuCCxQ5orNOCThL3skIR7EyjU_Uk71b68dvzJpARFY1nFoGoob9J-ef9cBR7e6_w/exec", // URL /exec dari Apps Script
+  TOKEN: "kimia-x-2026",                                  // harus sama dengan TOKEN di Code.gs
+  GURU: "Kiky Astyana, S.Pd",
+  SEKOLAH: "SMAN 1 Tanjung",
+  LINK_CLASSROOM: "",                                     // opsional: tautan Google Classroom
+  MENIT_ASESMEN: 15,                                      // lama asesmen awal dan akhir (menit)
+  IZIN_ULANG_ASESMEN: false                               // true = siswa boleh mengulang asesmen
+};
+/* ================================================================== */
+
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem("kimiaX_" + k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem("kimiaX_" + k, JSON.stringify(v)); }catch(e){} }
+};
+let S = { user: store.get("user", null), done: store.get("done", {}), data: store.get("data", {}) };
+let QUEUE = store.get("queue", []);
+let CLEAN = null;
+const persist = () => { store.set("user", S.user); store.set("done", S.done); store.set("data", S.data); };
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+const pct = (s, m) => Math.round(s / m * 100);
+const pad = n => String(n).padStart(2, "0");
+
+let toastTimer;
+function toast(msg){
+  const t = $("#toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+}
+function confetti(){
+  if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const box = document.createElement("div"); box.className = "confetti";
+  const cols = ["#0f9d8a", "#4c5fd5", "#f2b705", "#e8731a", "#1f86cc", "#c2255c"];
+  for(let k = 0; k < 44; k++){
+    const s = document.createElement("i");
+    s.style.left = Math.random() * 100 + "%"; s.style.background = cols[k % cols.length];
+    s.style.animationDelay = (Math.random() * 0.6) + "s"; s.style.animationDuration = (1.8 + Math.random() * 1.4) + "s";
+    s.style.transform = "rotate(" + Math.round(Math.random() * 360) + "deg)";
+    box.appendChild(s);
+  }
+  document.body.appendChild(box); setTimeout(() => box.remove(), 3800);
+}
+
+/* ---------- Pengiriman ke Apps Script ---------- */
+const urlReady = () => CONFIG.APPS_SCRIPT_URL && !/^ISI_/.test(CONFIG.APPS_SCRIPT_URL);
+async function sendRec(rec){
+  if(!urlReady()) return "lokal";
+  const opt = { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(rec) };
+  try{
+    const r = await fetch(CONFIG.APPS_SCRIPT_URL, opt);
+    const j = await r.json();
+    if(j && j.ok) return "terkirim";
+    throw new Error("respons");
+  }catch(e){
+    try{ await fetch(CONFIG.APPS_SCRIPT_URL, Object.assign({ mode: "no-cors" }, opt)); return "terkirim"; }
+    catch(e2){ return "antri"; }
+  }
+}
+async function flushQueue(){
+  if(!QUEUE.length || !urlReady()) return;
+  const rest = [];
+  for(const rec of QUEUE){ const st = await sendRec(rec); if(st === "antri") rest.push(rec); }
+  QUEUE = rest; store.set("queue", QUEUE);
+}
+const KEEP_DETAIL = ["apersepsi", "asesmen_awal", "asesmen_akhir"];
+async function kirim(kegiatan, skor, maks, detail){
+  const rec = { id: uid(), token: CONFIG.TOKEN, waktu: new Date().toISOString(), nama: S.user.nama, kelas: S.user.kelas, absen: S.user.absen, kegiatan, skor, maks, detail };
+  const nv = { skor, maks, waktu: rec.waktu, detail: KEEP_DETAIL.indexOf(kegiatan) >= 0 ? detail : undefined };
+  const old = S.data[kegiatan];
+  const keepFirst = kegiatan === "asesmen_awal";
+  if(!old) S.data[kegiatan] = nv;
+  else if(!keepFirst && (maks === null || old.maks === null || old.maks === undefined || skor / maks > old.skor / old.maks)) S.data[kegiatan] = nv;
+  S.done[kegiatan] = true; persist(); renderChrome();
+  const st = await sendRec(rec);
+  if(st === "antri"){ QUEUE.push(rec); store.set("queue", QUEUE); }
+  return st;
+}
+function statusHTML(st){
+  if(st === "terkirim") return '<div class="status ok">Jawabanmu sudah terkirim ke gurumu.</div>';
+  if(st === "antri") return '<div class="status warn">Jaringan bermasalah, jawabanmu belum terkirim. Jawaban tersimpan di perangkat ini dan akan dicoba lagi otomatis. Buka kembali tautan ini saat sinyal bagus dan jangan hapus data peramban.</div>';
+  return '<div class="status">Mode uji coba: URL Apps Script belum diisi, hasil hanya tersimpan di perangkat ini.</div>';
+}
+window.addEventListener("online", flushQueue);
+
+/* ---------- Komponen kecil ---------- */
+function reveal(title, body, hint){
+  return `<button type="button" class="reveal"><div class="rt">${title}</div><div class="hint">${hint || "Ketuk untuk membuka"}</div><div class="rb">${body}</div></button>`;
+}
+function bindReveal(root){ root.querySelectorAll(".reveal").forEach(b => b.onclick = () => b.classList.toggle("open")); }
+
+/* ---------- Mesin soal berformat TKA ---------- */
+const LETK = i => String.fromCharCode(65 + i);
+const KIND = { pg: "Pilihan ganda", pgk: "Pilihan ganda kompleks", bs: "Benar / salah" };
+const INS = {
+  pg: "Pilih <b>satu</b> jawaban yang paling tepat.",
+  pgk: "Pilih <b>semua</b> jawaban yang benar. Jawabannya lebih dari satu.",
+  bs: "Tentukan setiap pernyataan <b>Benar</b> atau <b>Salah</b>."
+};
+function okItem(it, a){
+  if(it.t === "pg") return a === it.a;
+  if(it.t === "pgk") return Array.isArray(a) && a.length === it.a.length && a.slice().sort().join() === it.a.slice().sort().join();
+  return Array.isArray(a) && a.length === it.s.length && it.s.every((s, r) => a[r] === s.a);
+}
+function isAns(it, a){
+  if(it.t === "pg") return a !== null && a !== undefined;
+  if(it.t === "pgk") return Array.isArray(a) && a.length > 0;
+  return Array.isArray(a) && a.length === it.s.length && a.every(x => x === true || x === false);
+}
+function perInd(items, ans){
+  const r = {};
+  ["A", "B"].forEach(k => {
+    const ix = []; items.forEach((it, n) => { if(it.ind === k) ix.push(n); });
+    r[k] = ix.length ? Math.round(ix.filter(n => okItem(items[n], ans[n])).length / ix.length * 100) : null;
+  });
+  return r;
+}
+function itemHTML(it, idx, a, show){
+  const good = show ? okItem(it, a) : false;
+  let h = `<div class="qmeta"><span class="tag num">Soal ${idx + 1}</span><span class="tag">${KIND[it.t]}</span>${it.lvl ? `<span class="tag lvl">${it.lvl}</span>` : ""}</div>`;
+  if(it.stim) h += `<div class="stim">${it.stim}</div>`;
+  h += `<p class="qtext">${it.q}</p><p class="qins">${INS[it.t]}</p>`;
+  if(it.t === "pg" || it.t === "pgk"){
+    h += `<div class="opts">` + it.o.map((o, k) => {
+      const sel = it.t === "pg" ? a === k : (Array.isArray(a) && a.indexOf(k) >= 0);
+      const key = it.t === "pg" ? it.a === k : it.a.indexOf(k) >= 0;
+      let cls = "opt " + (it.t === "pgk" ? "chk " : "") + (sel ? "sel " : "");
+      if(show){ if(key) cls += "ok "; else if(sel) cls += "bad "; }
+      const lt = it.t === "pgk" ? (sel || (show && key) ? "✓" : "") : LETK(k);
+      const mk = show ? (key ? '<span class="mk2">Benar</span>' : (sel ? '<span class="mk2">Salah</span>' : "")) : "";
+      return `<button type="button" class="${cls}" data-k="${k}"${show ? " disabled" : ""}><span class="let">${lt}</span><span>${o}</span>${mk}</button>`;
+    }).join("") + `</div>`;
+  }else{
+    h += `<table class="bs"><tr><th>Pernyataan</th><th>Benar</th><th>Salah</th></tr>` + it.s.map((s, r) => {
+      const v = Array.isArray(a) ? a[r] : null;
+      const cell = val => {
+        let c = "tog " + (v === val ? "on " : "");
+        if(show){ if(s.a === val) c += "ok "; else if(v === val) c += "bad "; }
+        return `<button type="button" class="${c}" data-r="${r}" data-v="${val ? 1 : 0}"${show ? " disabled" : ""}>${val ? "Benar" : "Salah"}</button>`;
+      };
+      return `<tr><td>${s.t}</td><td>${cell(true)}</td><td>${cell(false)}</td></tr>`;
+    }).join("") + `</table>`;
+  }
+  if(show) h += `<div class="fb ${good ? "ok" : "bad"}"><b>${good ? "Tepat." : "Belum tepat."}</b> ${it.e}</div>`;
+  return h;
+}
+
+function initTKA(cfg){
+  const id = cfg.id, items = cfg.items, mode = cfg.mode, N = items.length, test = mode !== "latihan";
+  const box = $("#tka");
+  const dr = test ? (store.get("draft", {})[id] || {}) : {};
+  let ans = (Array.isArray(dr.ans) && dr.ans.length === N) ? dr.ans : new Array(N).fill(null);
+  let qi = Math.min(Math.max(dr.i || 0, 0), N - 1);
+  let t0 = dr.t0 || null;
+  let checked = new Array(N).fill(false);
+  let timer = null;
+  CLEAN = () => { if(timer) clearInterval(timer); };
+  const save = () => { if(!test) return; const D = store.get("draft", {}); D[id] = { ans, i: qi, t0 }; store.set("draft", D); };
+  const clearDraft = () => { const D = store.get("draft", {}); delete D[id]; store.set("draft", D); };
+  const score = a => items.reduce((s, it, k) => s + (okItem(it, a[k]) ? 1 : 0), 0);
+
+  function tick(){
+    const el = $("#tm"); if(!el || !t0) return;
+    const rem = CONFIG.MENIT_ASESMEN * 60 - Math.floor((Date.now() - t0) / 1000);
+    const a = Math.abs(rem);
+    el.textContent = rem >= 0 ? "Sisa waktu " + pad(Math.floor(a / 60)) + ":" + pad(a % 60) : "Waktu habis, segera kirim";
+    el.classList.toggle("low", rem <= 60);
+  }
+  function intro(){
+    box.innerHTML = `<div class="note"><p>${cfg.intro}</p></div>
+      <h3>Bentuk soal yang akan kamu temui</h3>
+      <ul class="kinds"><li><b>Pilihan ganda.</b> Pilih satu jawaban yang paling tepat.</li>
+      <li><b>Pilihan ganda kompleks.</b> Pilih semua jawaban yang benar. Jawabannya lebih dari satu.</li>
+      <li><b>Benar / salah.</b> Tentukan setiap pernyataan benar atau salah.</li></ul>
+      <p>Sebagian soal punya bacaan atau data di atasnya. Baca bagian itu lebih dulu, lalu cari kata kunci pada pertanyaan.</p>
+      <p><b>${N} soal, ${CONFIG.MENIT_ASESMEN} menit.</b> Soal pilihan ganda kompleks dan benar/salah dinilai benar jika semua pilihanmu tepat. Soal bisa dijawab tidak berurutan, dan jawabanmu tersimpan otomatis.</p>
+      <button type="button" class="btn" id="go1">Mulai mengerjakan</button>`;
+    $("#go1").onclick = () => { t0 = Date.now(); save(); draw(); };
+  }
+  function stClass(k){
+    if(!test && checked[k]) return okItem(items[k], ans[k]) ? "ok" : "bad";
+    return isAns(items[k], ans[k]) ? "ans" : "";
+  }
+  function draw(){
+    const it = items[qi];
+    const nAns = items.filter((x, k) => isAns(x, ans[k])).length;
+    const show = !test && checked[qi];
+    let h = `<div class="tka-top">${test ? '<span class="timer" id="tm">Sisa waktu --:--</span>' : '<span class="timer soft">Latihan dengan umpan balik langsung</span>'}<span class="cnt">Terjawab <b>${nAns}</b> dari ${N}</span></div>
+      <div class="navgrid">${items.map((_, k) => `<button type="button" class="nb ${k === qi ? "cur " : ""}${stClass(k)}" data-k="${k}" aria-label="Soal ${k + 1}">${k + 1}</button>`).join("")}</div>
+      <div class="qcard">${itemHTML(it, qi, ans[qi], show)}</div><div>`;
+    if(test){
+      h += `<button type="button" class="btn alt" id="pv"${qi === 0 ? " disabled" : ""}>Soal sebelumnya</button>`;
+      h += qi < N - 1 ? `<button type="button" class="btn" id="nx">Soal berikutnya</button>` : "";
+      h += `<button type="button" class="btn warm" id="fin">Selesai dan kirim</button></div><div id="fwarn"></div>`;
+    }else{
+      if(!show) h += `<button type="button" class="btn" id="chkq"${isAns(it, ans[qi]) ? "" : " disabled"}>Periksa jawaban</button>`;
+      else h += qi < N - 1 ? `<button type="button" class="btn" id="nx">Soal berikutnya</button>` : `<button type="button" class="btn warm" id="fin">Lihat hasil</button>`;
+      h += `</div>`;
+    }
+    box.innerHTML = h;
+    box.querySelectorAll(".nb").forEach(b => b.onclick = () => { qi = +b.dataset.k; save(); draw(); });
+    if(!show){
+      box.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+        const k = +b.dataset.k;
+        if(it.t === "pg") ans[qi] = k;
+        else { const cur = Array.isArray(ans[qi]) ? ans[qi].slice() : []; const p = cur.indexOf(k); if(p >= 0) cur.splice(p, 1); else cur.push(k); cur.sort(); ans[qi] = cur; }
+        save(); draw();
+      });
+      box.querySelectorAll(".tog").forEach(b => b.onclick = () => {
+        const arr = Array.isArray(ans[qi]) ? ans[qi].slice() : it.s.map(() => null);
+        arr[+b.dataset.r] = b.dataset.v === "1"; ans[qi] = arr; save(); draw();
+      });
+    }
+    const nx = $("#nx", box); if(nx) nx.onclick = () => { qi = Math.min(N - 1, qi + 1); save(); draw(); };
+    const pv = $("#pv", box); if(pv) pv.onclick = () => { qi = Math.max(0, qi - 1); save(); draw(); };
+    const cq = $("#chkq", box); if(cq) cq.onclick = () => { checked[qi] = true; draw(); };
+    const fin = $("#fin", box);
+    if(fin) fin.onclick = () => {
+      if(test){
+        const un = N - nAns;
+        if(un > 0){
+          $("#fwarn").innerHTML = `<div class="status warn">Masih ada <b>${un}</b> soal yang belum dijawab. Kirim sekarang?<br><button type="button" class="btn warm" id="fy">Ya, kirim</button><button type="button" class="btn alt" id="fn">Periksa lagi</button></div>`;
+          $("#fy").onclick = submit; $("#fn").onclick = () => { $("#fwarn").innerHTML = ""; };
+        }else submit();
+      }else{
+        const first = checked.indexOf(false);
+        if(first >= 0){ toast("Masih ada soal yang belum diperiksa"); qi = first; draw(); }
+        else submit();
+      }
+    };
+    if(test){ if(!timer) timer = setInterval(tick, 1000); tick(); }
+  }
+  async function submit(){
+    if(timer){ clearInterval(timer); timer = null; }
+    const sc = score(ans), per = perInd(items, ans);
+    const detail = { ans, per, detik: t0 ? Math.round((Date.now() - t0) / 1000) : null };
+    if(test) clearDraft();
+    showResult(ans, false);
+    const st = await kirim(id, sc, N, detail);
+    const el = $("#st"); if(el) el.innerHTML = statusHTML(st);
+  }
+  function reviewHTML(a){ return items.map((it, k) => `<div class="qcard">${itemHTML(it, k, a[k], true)}</div>`).join(""); }
+  function showResult(a, locked){
+    const sc = score(a), p = pct(sc, N), per = perInd(items, a);
+    const stBox = locked ? "" : `<div id="st"><div class="status">Mengirim hasil...</div></div>`;
+    let h = "";
+    if(mode === "pre"){
+      h = `<div class="note"><h3>${locked ? "Kamu sudah mengerjakan asesmen awal" : "Asesmen awal sudah tercatat"}</h3>
+        <p>Terima kasih sudah menjawab dengan jujur. Jawabannya belum dibahas, karena di akhir kamu akan mengerjakan asesmen serupa untuk melihat seberapa jauh kemajuanmu.</p></div>${stBox}
+        <button type="button" class="btn" id="go">Lanjut belajar</button>`;
+    }else if(mode === "post"){
+      const pre = S.data.asesmen_awal, preP = pre && pre.maks ? pct(pre.skor, pre.maks) : null;
+      const ng = preP !== null && preP < 100 ? (p - preP) / (100 - preP) : null;
+      const kat = ng === null ? "" : (ng >= 0.7 ? "tinggi" : ng >= 0.3 ? "sedang" : "rendah");
+      const msg = p >= 85 ? "Hebat, pemahamanmu sudah kuat." : p >= 60 ? "Bagus. Baca pembahasan untuk bagian yang masih keliru." : "Belum maksimal. Baca pembahasan, lalu ulangi bagian materi yang masih sulit.";
+      h = `<div class="note"><div class="score">${p}<small> dari 100</small></div><p>${sc} dari ${N} soal benar. ${msg}</p></div>
+        ${preP !== null ? `<div class="cmp"><div><small>Asesmen awal</small><b>${preP}%</b></div><div><small>Asesmen akhir</small><b>${p}%</b></div><div><small>Perubahan</small><b>${p - preP >= 0 ? "+" : ""}${p - preP} poin</b></div></div>
+        ${kat ? `<p class="sm">Peningkatan belajarmu termasuk kategori <b>${kat}</b> (N-gain ${ng.toFixed(2)}).</p>` : ""}` : ""}
+        <h3>Capaian tiap sub tujuan</h3>
+        <p class="sm">Sub TP 1: membedakan sifat fisik dan sifat kimia, ${per.A}%</p><div class="bar"><i style="width:${per.A}%"></i></div>
+        <p class="sm">Sub TP 2: mengklasifikasikan unsur, senyawa, dan campuran, ${per.B}%</p><div class="bar"><i style="width:${per.B}%"></i></div>
+        ${stBox}
+        <button type="button" class="btn alt" id="rv">Lihat pembahasan</button><button type="button" class="btn" id="go">Lanjut</button>
+        <div id="review" class="hidden"><h3 style="margin-top:16px">Pembahasan</h3>${reviewHTML(a)}</div>`;
+      if(!locked && p >= 60) confetti();
+    }else{
+      const salah = items.map((it, k) => okItem(it, a[k]) ? null : k + 1).filter(Boolean);
+      const msg = p >= 85 ? "Luar biasa. Pemahamanmu sudah kuat." : p >= 60 ? "Bagus. Tinjau lagi soal yang masih keliru." : "Tidak apa-apa. Baca ulang materinya, lalu coba lagi.";
+      h = `<div class="note"><div class="score">${sc}<small> dari ${N} (${p}%)</small></div><p>${msg}</p>${salah.length ? `<p>Soal yang perlu kamu tinjau: nomor <b>${salah.join(", ")}</b>.</p>` : ""}</div>${stBox}
+        <button type="button" class="btn alt" id="again">Ulangi latihan</button><button type="button" class="btn" id="go">Lanjut</button>`;
+      if(!locked && p >= 85) confetti();
+    }
+    box.innerHTML = h;
+    $("#go").onclick = () => go(cur + 1);
+    const rv = $("#rv"); if(rv) rv.onclick = () => { $("#review").classList.toggle("hidden"); rv.textContent = $("#review").classList.contains("hidden") ? "Lihat pembahasan" : "Sembunyikan pembahasan"; };
+    const ag = $("#again"); if(ag) ag.onclick = () => { ans = new Array(N).fill(null); checked = new Array(N).fill(false); qi = 0; draw(); };
+    box.scrollIntoView && box.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  const prev = S.data[id];
+  if(test && prev && prev.detail && prev.detail.ans && !CONFIG.IZIN_ULANG_ASESMEN){ showResult(prev.detail.ans, true); return; }
+  if(test && !t0){ intro(); return; }
+  draw();
+}
+
+/* ---------- Sorter (Lab Virtual dan Misi Klasifikasi) ---------- */
+const EVID = ["Muncul gelembung atau gas", "Terbentuk endapan", "Warna berubah", "Suhu berubah (panas atau dingin)", "Ada nyala atau cahaya"];
+function sorterHTML(items, choices, opt){
+  return `<div id="sorter">` + items.map((it, i) => `<div class="item" data-i="${i}">
+    <div class="ihead"><span class="ico">${it.ico}</span><div><b>${it.t}</b>${it.d ? `<p>${it.d}</p>` : ""}</div></div>
+    <div class="choices">${choices.map((c, k) => `<button type="button" class="chip c-${opt.col[k]}" data-k="${k}">${c}</button>`).join("")}</div>
+    ${opt.evid ? `<div class="evid hidden"><small>Ciri apa yang kamu amati? (boleh lebih dari satu)</small><br>${EVID.map((x, k) => `<button type="button" class="chip mini" data-ev="${k}">${x}</button>`).join("")}</div>` : ""}
+    ${opt.reason ? `<input class="reason" type="text" maxlength="200" placeholder="Alasanku memilih ini...">` : ""}
+    <div class="fb hidden"></div></div>`).join("") +
+    `<div><button type="button" class="btn" id="chk">Periksa jawabanku</button></div><div id="res"></div></div>`;
+}
+function initSorter(id, items, choices, opt){
+  const root = $("#sorter");
+  root.querySelectorAll(".item").forEach(card => {
+    card.querySelectorAll(".choices .chip").forEach(b => b.onclick = () => {
+      if(card.classList.contains("locked")) return;
+      card.querySelectorAll(".choices .chip").forEach(x => x.classList.remove("sel"));
+      b.classList.add("sel"); card.dataset.sel = b.dataset.k;
+      if(opt.evid) card.querySelector(".evid").classList.toggle("hidden", +b.dataset.k !== 1);
+    });
+    card.querySelectorAll("[data-ev]").forEach(b => b.onclick = () => { if(!card.classList.contains("locked")) b.classList.toggle("sel"); });
+  });
+  $("#chk").onclick = async () => {
+    const cards = [...root.querySelectorAll(".item")];
+    const miss = cards.filter(c => c.dataset.sel === undefined);
+    if(miss.length){ toast("Masih ada " + miss.length + " item yang belum dijawab"); miss[0].scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+    $("#chk").disabled = true;
+    let sc = 0; const detail = [];
+    cards.forEach((card, i) => {
+      const it = items[i], sel = +card.dataset.sel, ok = sel === it.a; if(ok) sc++;
+      card.classList.add("locked");
+      card.querySelectorAll(".chip").forEach(c => c.disabled = true);
+      const evSel = [...card.querySelectorAll("[data-ev].sel")].map(b => EVID[+b.dataset.ev]);
+      const reason = card.querySelector(".reason") ? card.querySelector(".reason").value.trim() : "";
+      let extra = "";
+      if(opt.evid && it.a === 1 && it.ev) extra = `<br><small>Ciri yang bisa diamati: ${it.ev.map(k => EVID[k]).join(", ")}.</small>`;
+      const fb = card.querySelector(".fb"); fb.classList.remove("hidden"); fb.classList.add(ok ? "ok" : "bad");
+      fb.innerHTML = `<b>${ok ? "Tepat." : "Jawaban yang tepat: " + choices[it.a] + "."}</b> ${it.e}${extra}`;
+      detail.push({ item: it.t.replace(/<[^>]+>/g, ""), pilih: choices[sel], benar: ok, ciri: evSel, alasan: reason });
+    });
+    const p = pct(sc, items.length);
+    $("#res").innerHTML = `<div class="note"><div class="score">${sc}<small> dari ${items.length} (${p}%)</small></div>
+      <p>${p >= 85 ? "Hebat. Kamu sudah menguasai bagian ini." : "Baca lagi penjelasan di tiap item yang keliru, lalu ulangi."}</p></div>
+      <div id="st"><div class="status">Mengirim hasil...</div></div>
+      <button type="button" class="btn alt" id="redo">Ulangi</button><button type="button" class="btn" id="go">Lanjut</button>`;
+    $("#redo").onclick = () => render(); $("#go").onclick = () => go(cur + 1);
+    $("#res").scrollIntoView({ behavior: "smooth", block: "center" });
+    if(p >= 85) confetti();
+    const st = await kirim(id, sc, items.length, { jawaban: detail });
+    const el = $("#st"); if(el) el.innerHTML = statusHTML(st);
+  };
+}
+
+/* ---------- Data soal ---------- */
+const APERS = [
+  { ico: "🧊", t: "Es batu mencair di dalam gelas", a: 1 },
+  { ico: "🪵", t: "Kayu terbakar menjadi abu", a: 0 },
+  { ico: "🔩", t: "Paku besi berkarat", a: 0 },
+  { ico: "🍵", t: "Gula larut dalam teh panas", a: 1 },
+  { ico: "🍚", t: "Nasi menjadi basi", a: 0 },
+  { ico: "📄", t: "Kertas disobek menjadi kecil-kecil", a: 1 }
+];
+const APERS_OPT = ["Terbentuk zat baru", "Zatnya tetap sama, hanya tampilannya berubah", "Belum tahu"];
+
+const LAB = [
+  { ico: "🕯️", t: "Lilin dipanaskan perlahan hingga meleleh", d: "Lilin padat berubah menjadi cairan bening. Jika didinginkan, ia memadat kembali menjadi lilin.", a: 0, e: "Perubahan fisik: hanya wujudnya yang berubah. Zatnya tetap parafin dan bisa kembali seperti semula." },
+  { ico: "🔥", t: "Lilin dibakar dengan sumbu menyala", d: "Terlihat nyala terang dan terasa panas. Lilin makin pendek dan tidak bisa dikembalikan ke bentuk semula.", a: 1, ev: [3, 4], e: "Perubahan kimia: parafin bereaksi dengan oksigen menghasilkan zat baru (karbon dioksida dan uap air) disertai nyala dan panas." },
+  { ico: "🧂", t: "Garam dilarutkan dalam air", d: "Butiran garam hilang dari pandangan dan air terasa asin. Jika air diuapkan, kristal garam muncul lagi.", a: 0, e: "Perubahan fisik: garam hanya tersebar di dalam air dan dapat diperoleh kembali lewat penguapan. Tidak ada zat baru." },
+  { ico: "🔩", t: "Paku besi dibiarkan lembap beberapa hari", d: "Permukaan paku yang tadinya abu-abu mengilap berubah menjadi cokelat kemerahan dan rapuh.", a: 1, ev: [2], e: "Perubahan kimia: besi bereaksi dengan oksigen dan air membentuk karat, zat baru yang sifatnya berbeda dari besi." },
+  { ico: "♨️", t: "Air dididihkan hingga muncul banyak gelembung", d: "Air menggelegak dan keluar uap. Jika uap didinginkan, ia kembali menjadi air.", a: 0, e: "Perubahan fisik: gelembung itu adalah uap air (zat yang sama). Gelembung belum tentu tanda reaksi kimia." },
+  { ico: "🥄", t: "Baking soda dicampur cuka", d: "Langsung berbuih hebat dan muncul gelembung gas dari campuran.", a: 1, ev: [0], e: "Perubahan kimia: baking soda bereaksi dengan asam dalam cuka menghasilkan gas karbon dioksida, yaitu zat baru." },
+  { ico: "🍬", t: "Gula dipanaskan kuat hingga gosong", d: "Gula meleleh, lalu berubah cokelat, berbau gosong, berasap, dan akhirnya menghitam.", a: 1, ev: [0, 2], e: "Perubahan kimia: gula terurai menjadi zat-zat baru (arang dan gas). Perubahan warna menjadi hitam dan asap adalah buktinya." }
+];
+
+const SORT = [
+  { ico: "🔌", t: "Kawat tembaga pada kabel", d: "Logam berwarna kemerahan, hanya terdiri dari tembaga (Cu).", a: 0, e: "Unsur: hanya tersusun dari satu jenis atom, yaitu Cu." },
+  { ico: "💧", t: "Air murni (H₂O)", d: "Dapat diuraikan dengan listrik menjadi gas hidrogen dan oksigen.", a: 1, e: "Senyawa: H dan O terikat secara kimia dengan perbandingan tetap, dan bisa diuraikan lewat reaksi kimia." },
+  { ico: "🌬️", t: "Udara bersih", d: "Berisi nitrogen, oksigen, karbon dioksida, dan gas lain.", a: 2, e: "Campuran: gas-gas penyusunnya hanya bercampur dan sifatnya masing-masing tetap." },
+  { ico: "🧂", t: "Garam dapur (NaCl)", d: "Natrium dan klorin berikatan dengan perbandingan tetap.", a: 1, e: "Senyawa: sifatnya sangat berbeda dari natrium dan klorin penyusunnya." },
+  { ico: "🌊", t: "Air laut", d: "Air bercampur garam dan mineral lain yang terlarut.", a: 2, e: "Campuran (homogen): komposisinya bisa berbeda-beda dan garamnya bisa dipisahkan dengan penguapan." },
+  { ico: "🫁", t: "Gas oksigen (O₂)", d: "Gas yang kita hirup untuk bernapas.", a: 0, e: "Unsur: hanya tersusun dari atom oksigen." },
+  { ico: "🥣", t: "Baking soda (NaHCO₃)", d: "Serbuk putih untuk pengembang kue.", a: 1, e: "Senyawa: tersusun dari natrium, hidrogen, karbon, dan oksigen yang terikat secara kimia." },
+  { ico: "🌱", t: "Tanah kebun", d: "Ada pasir, humus, air, dan butiran lain yang bisa dibedakan.", a: 2, e: "Campuran (heterogen): bagian-bagiannya tampak berbeda dan bisa dipisahkan secara fisik." },
+  { ico: "🍙", t: "Aluminium foil", d: "Lembaran logam perak tipis pembungkus makanan, praktis hanya aluminium.", a: 0, e: "Unsur: pada tingkat ini foil dianggap aluminium (Al) hampir murni." },
+  { ico: "🍵", t: "Teh manis", d: "Air, gula, dan zat teh yang larut merata.", a: 2, e: "Campuran (homogen): komponennya tersebar merata namun masih bisa dipisahkan secara fisik." },
+  { ico: "🍚", t: "Gula pasir (sukrosa)", d: "Butiran putih manis; jika dipanaskan kuat menjadi arang dan uap air.", a: 1, e: "Senyawa: tersusun dari karbon, hidrogen, dan oksigen yang terikat secara kimia." },
+  { ico: "🫧", t: "Karbon dioksida (CO₂)", d: "Gas dalam minuman bersoda dan hasil pernapasan.", a: 1, e: "Senyawa: satu atom C terikat dengan dua atom O dengan perbandingan tetap." }
+];
+
+/* Asesmen awal: indikator A = sifat dan perubahan materi (Sub TP 1), B = klasifikasi materi (Sub TP 2) */
+const PRE = [
+  { ind: "A", lvl: "Pemahaman", t: "pg",
+    stim: "Beberapa sifat aluminium:<br>(1) berwarna perak mengilap,<br>(2) menghantarkan listrik,<br>(3) bereaksi dengan asam klorida menghasilkan gas hidrogen,<br>(4) titik lelehnya 660 °C.",
+    q: "Sifat yang termasuk <b>sifat kimia</b> aluminium ditunjukkan oleh nomor ...", o: ["(1)", "(2)", "(3)", "(4)"], a: 2,
+    e: "Sifat kimia tampak ketika zat bereaksi menjadi zat lain. Bereaksi dengan asam (nomor 3) menghasilkan gas hidrogen, yaitu zat baru. Nomor (1), (2), dan (4) dapat diamati atau diukur tanpa mengubah aluminium menjadi zat lain, jadi termasuk sifat fisik." },
+  { ind: "A", lvl: "Penerapan", t: "pgk", q: "Manakah peristiwa berikut yang termasuk <b>perubahan kimia</b>?",
+    o: ["Kapur barus di dalam lemari lama-lama habis (menyublim)", "Apel yang dikupas berubah menjadi cokelat", "Telur mentah digoreng menjadi matang", "Sirup dicampur air hingga merata", "Titik-titik air muncul di luar gelas berisi es"], a: [1, 2],
+    e: "Apel yang berubah cokelat dan telur yang matang menghasilkan zat baru yang tidak bisa kembali seperti semula (perubahan kimia). Menyublim, melarut, dan mengembun hanya mengubah wujud atau tersebarnya zat sehingga termasuk perubahan fisik." },
+  { ind: "A", lvl: "Penalaran", t: "bs",
+    stim: "Dina mengamati tiga peristiwa.<br><b>P:</b> sebatang cokelat meleleh di dalam saku.<br><b>Q:</b> sepotong pita magnesium dibakar, muncul nyala putih terang dan tersisa serbuk putih.<br><b>R:</b> air garam dipanaskan sampai airnya habis dan tersisa kristal garam.",
+    q: "Tentukan benar atau salah setiap pernyataan tentang pengamatan Dina.",
+    s: [{ t: "Peristiwa P adalah perubahan fisik karena tidak terbentuk zat baru.", a: true },
+        { t: "Peristiwa Q adalah perubahan kimia, salah satu buktinya terbentuk serbuk putih yang berbeda dari magnesium.", a: true },
+        { t: "Pada peristiwa R, garam berubah menjadi zat baru sehingga tergolong perubahan kimia.", a: false }],
+    e: "P hanya perubahan wujud (fisik). Q menghasilkan zat baru (kimia). Pada R garam tidak berubah menjadi zat lain; ia hanya terlepas dari air dan muncul kembali sebagai kristal (fisik)." },
+  { ind: "A", lvl: "Penalaran", t: "pg",
+    stim: "Zat X berupa padatan putih. Dipanaskan perlahan, X meleleh pada 80 °C menjadi cairan bening; setelah didinginkan, ia memadat menjadi padatan putih semula. Bila pemanasan diteruskan hingga 250 °C, cairan berubah cokelat gelap, berbau gosong, dan berasap. Setelah didinginkan, zat itu tidak kembali menjadi padatan putih.",
+    q: "Kesimpulan yang paling tepat adalah ...",
+    o: ["Meleleh dan menjadi gelap keduanya perubahan fisik", "Meleleh perubahan fisik, menjadi gelap dan berasap perubahan kimia", "Meleleh perubahan kimia, menjadi gelap perubahan fisik", "Keduanya perubahan kimia karena suhunya naik"], a: 1,
+    e: "Saat meleleh, zatnya tetap sama dan bisa kembali memadat (fisik). Pada 250 °C terbentuk zat baru yang ditandai perubahan warna, bau gosong, dan asap, serta tidak dapat kembali (kimia)." },
+  { ind: "A", lvl: "Penerapan", t: "pg", q: "Rani ingin membedakan tepung terigu dan gula pasir (keduanya serbuk putih) <b>tanpa mengubah zatnya</b>. Cara yang paling tepat adalah ...",
+    o: ["membakar keduanya lalu mengamati hasilnya", "mencampur keduanya dengan cuka", "memanaskan keduanya hingga hangus", "melarutkan sedikit masing-masing dalam air dan mengamati kelarutannya"], a: 3,
+    e: "Kelarutan adalah sifat fisik: gula larut dalam air, tepung tidak. Membakar, mencampur dengan cuka, atau memanaskan hingga hangus akan mengubah zat menjadi zat lain." },
+  { ind: "B", lvl: "Pemahaman", t: "pg", q: "Perhatikan benda berikut: kawat tembaga, gas oksigen, garam dapur, dan air laut. Pasangan yang keduanya merupakan <b>unsur</b> adalah ...",
+    o: ["gas oksigen dan garam dapur", "garam dapur dan air laut", "kawat tembaga dan air laut", "kawat tembaga dan gas oksigen"], a: 3,
+    e: "Tembaga (Cu) dan oksigen (O₂) hanya tersusun dari satu jenis atom sehingga merupakan unsur. Garam dapur adalah senyawa, sedangkan air laut adalah campuran." },
+  { ind: "B", lvl: "Penerapan", t: "pgk", q: "Manakah materi berikut yang tergolong <b>campuran</b>?",
+    o: ["Udara bersih", "Karbon dioksida (CO₂)", "Teh manis", "Gas hidrogen (H₂)", "Tanah kebun"], a: [0, 2, 4],
+    e: "Udara, teh manis, dan tanah terdiri dari beberapa zat yang bercampur tanpa membentuk zat baru. CO₂ adalah senyawa dan H₂ adalah unsur, keduanya zat tunggal." },
+  { ind: "B", lvl: "Penalaran", t: "bs",
+    stim: "Tiga zat diuji.<br><b>Zat M:</b> cairan bening yang tidak dapat dipisahkan dengan penyaringan maupun penguapan; bila dialiri listrik terurai menjadi dua gas yang berbeda.<br><b>Zat N:</b> cairan yang tampak seragam; bila dipanaskan, satu komponennya menguap lebih dahulu dan komponen lain tertinggal.",
+    q: "Tentukan benar atau salah setiap pernyataan berikut.",
+    s: [{ t: "Zat M adalah senyawa karena dapat diuraikan menjadi zat lain melalui reaksi kimia.", a: true },
+        { t: "Zat N adalah campuran karena komponennya dapat dipisahkan dengan cara fisik.", a: true },
+        { t: "Zat N adalah campuran heterogen karena komponennya tampak seragam.", a: false }],
+    e: "M terurai secara kimia menjadi dua zat sehingga senyawa. Pada N komponennya dipisahkan secara fisik (menguap lebih dulu) sehingga campuran. Karena tampak seragam, N adalah campuran homogen, bukan heterogen." },
+  { ind: "B", lvl: "Penalaran", t: "pg", q: "Label sebuah minuman kemasan tertulis komposisi: air, gula, asam sitrat, dan pewarna. Minuman tersebut paling tepat digolongkan sebagai ...",
+    o: ["unsur", "senyawa", "campuran", "zat murni"], a: 2,
+    e: "Minuman itu terdiri dari beberapa zat berbeda yang bercampur, sehingga termasuk campuran. Unsur, senyawa, dan zat murni adalah zat tunggal." },
+  { ind: "B", lvl: "Penalaran", t: "pg", q: "Natrium (logam lunak yang sangat reaktif) dan klorin (gas beracun) bereaksi membentuk garam dapur yang berwarna putih dan aman dimakan. Kesimpulan yang tepat adalah ...",
+    o: ["garam dapur adalah senyawa yang sifatnya berbeda dari natrium dan klorin", "garam dapur adalah campuran natrium dan klorin", "garam dapur adalah unsur karena berwarna putih", "natrium dan klorin hanya bercampur tanpa membentuk zat baru"], a: 0,
+    e: "Sifat garam dapur sangat berbeda dari natrium dan klorin, tanda terbentuknya zat baru. Zat baru dari beberapa unsur yang terikat secara kimia adalah senyawa." }
+];
+
+/* Latihan TKA 1 (Misi 1) */
+const LAT1 = [
+  { ind: "A", lvl: "Pemahaman", t: "pg", q: "Manakah yang merupakan <b>sifat kimia</b> suatu zat?",
+    o: ["Titik didih alkohol 78 °C", "Besi mudah berkarat", "Massa jenis air 1 g/mL", "Belerang berwarna kuning"], a: 1,
+    e: "Berkarat berarti besi bereaksi dengan oksigen dan air membentuk zat baru. Pilihan lain dapat diamati atau diukur tanpa mengubah zat menjadi zat lain, jadi termasuk sifat fisik." },
+  { ind: "A", lvl: "Pemahaman", t: "pg", q: "Es batu mencair menjadi air. Peristiwa ini adalah ...",
+    o: ["perubahan kimia, karena wujudnya berubah", "perubahan kimia, karena suhunya berubah", "perubahan fisik, karena tidak terbentuk zat baru", "perubahan fisik, karena zatnya hilang"], a: 2,
+    e: "Es dan air sama-sama H₂O. Hanya wujudnya yang berubah, sehingga ini perubahan fisik." },
+  { ind: "A", lvl: "Penalaran", t: "bs",
+    stim: "Dina berkata, “Setiap perubahan wujud pasti perubahan kimia.” Untuk mengujinya ia mengamati tiga peristiwa. <b>(i)</b> Lilin dipanaskan hingga meleleh, lalu didinginkan dan memadat lagi. <b>(ii)</b> Air dididihkan hingga menguap. <b>(iii)</b> Lilin dibakar dengan sumbu menyala hingga memendek.",
+    q: "Tentukan benar atau salah setiap pernyataan berikut.",
+    s: [{ t: "Pada (i), lilin tetap berupa parafin sebelum dan sesudah meleleh.", a: true },
+        { t: "Gelembung dan uap pada (ii) adalah zat baru.", a: false },
+        { t: "Pada (iii), terbentuk zat baru sehingga tergolong perubahan kimia.", a: true }],
+    e: "Pada (i) dan (ii) hanya wujud yang berubah, zatnya tetap (fisik). Pada (iii) terbentuk zat baru (kimia). Jadi pernyataan Dina tidak selalu benar." },
+  { ind: "A", lvl: "Penerapan", t: "pgk", q: "Manakah yang dapat menjadi <b>petunjuk</b> terjadinya perubahan kimia?",
+    o: ["Muncul gas yang tidak ada sebelumnya", "Wujud zat berubah", "Terbentuk endapan setelah dua larutan dicampur", "Ukuran zat menjadi lebih kecil", "Warna berubah drastis disertai bau baru"], a: [0, 2, 4],
+    e: "Gas, endapan, serta perubahan warna dan bau baru adalah petunjuk terbentuknya zat baru. Perubahan wujud dan ukuran adalah perubahan fisik." },
+  { ind: "A", lvl: "Pemahaman", t: "pg", q: "Manakah yang termasuk <b>sifat fisik</b>?",
+    o: ["Kertas mudah terbakar", "Besi dapat berkarat", "Bensin mudah menyala", "Gula larut dalam air"], a: 3,
+    e: "Kelarutan dapat diamati tanpa mengubah gula menjadi zat lain, sehingga ia sifat fisik. Mudah terbakar dan berkarat menunjukkan kemampuan bereaksi, jadi sifat kimia." },
+  { ind: "A", lvl: "Penalaran", t: "pg", q: "Air yang mendidih menimbulkan banyak gelembung. Apakah gelembung itu pasti tanda reaksi kimia?",
+    o: ["Ya, gelembung selalu menandakan reaksi kimia", "Tidak, gelembung itu uap air (zat yang sama) sehingga perubahannya fisik", "Ya, karena suhunya naik", "Tidak, karena air tidak dapat mendidih"], a: 1,
+    e: "Ciri seperti gelembung hanya petunjuk. Pada air mendidih, gelembungnya adalah uap air, bukan zat baru." },
+  { ind: "A", lvl: "Penerapan", t: "pg", q: "Nasi yang dibiarkan berhari-hari menjadi basi, berbau asam, dan rasanya berubah. Peristiwa ini termasuk ...",
+    o: ["perubahan fisik karena nasi masih berbentuk nasi", "perubahan fisik karena bau mudah menguap", "bukan perubahan apa pun", "perubahan kimia karena terbentuk zat baru"], a: 3,
+    e: "Bau dan rasa yang berubah menunjukkan terbentuknya zat-zat baru akibat penguraian oleh mikroorganisme." },
+  { ind: "A", lvl: "Pemahaman", t: "pgk", q: "Manakah pernyataan berikut yang merupakan <b>sifat fisik</b>?",
+    o: ["Bensin mudah terbakar", "Titik didih alkohol 78 °C", "Besi berkarat bila lembap", "Tembaga menghantarkan listrik", "Massa jenis minyak lebih kecil daripada air"], a: [1, 3, 4],
+    e: "Titik didih, daya hantar listrik, dan massa jenis dapat diamati atau diukur tanpa mengubah zat menjadi zat lain. Mudah terbakar dan berkarat adalah sifat kimia." }
+];
+
+/* Latihan TKA 2 (Misi 2) */
+const LAT2 = [
+  { ind: "B", lvl: "Pemahaman", t: "pg", q: "Zat yang tidak dapat diuraikan lagi menjadi zat yang lebih sederhana melalui reaksi kimia biasa disebut ...",
+    o: ["senyawa", "unsur", "campuran homogen", "campuran heterogen"], a: 1, e: "Itulah definisi unsur: hanya tersusun dari satu jenis atom." },
+  { ind: "B", lvl: "Penerapan", t: "pg", q: "Air dapat diuraikan dengan listrik menjadi gas hidrogen dan gas oksigen. Hal ini menunjukkan bahwa air adalah ...",
+    o: ["unsur", "campuran", "senyawa", "larutan"], a: 2, e: "Zat yang dapat diuraikan melalui reaksi kimia menjadi zat lebih sederhana adalah senyawa." },
+  { ind: "B", lvl: "Pemahaman", t: "pgk", q: "Manakah pernyataan yang benar tentang perbedaan <b>senyawa</b> dan <b>campuran</b>?",
+    o: ["Komponen campuran masih mempertahankan sifat aslinya", "Senyawa dapat dipisahkan dengan cara fisik", "Perbandingan unsur penyusun senyawa selalu tetap", "Campuran selalu tampak seragam", "Komponen campuran dapat dipisahkan dengan cara fisik seperti penyaringan atau penguapan"], a: [0, 2, 4],
+    e: "Campuran tidak membentuk ikatan kimia baru, jadi sifat komponennya tetap dan bisa dipisahkan secara fisik. Senyawa memiliki perbandingan tetap dan hanya bisa diuraikan secara kimia. Campuran ada yang seragam (homogen) dan ada yang tidak (heterogen)." },
+  { ind: "B", lvl: "Penalaran", t: "bs",
+    stim: "Serbuk besi dan serbuk belerang dicampur tanpa dipanaskan. Serbuk besi dalam campuran masih dapat ditarik oleh magnet, dan serbuk belerang tetap berwarna kuning.",
+    q: "Tentukan benar atau salah setiap pernyataan berikut.",
+    s: [{ t: "Besi dan belerang dalam campuran itu masih mempertahankan sifatnya masing-masing.", a: true },
+        { t: "Besi dapat dipisahkan dari belerang dengan magnet, yaitu cara fisik.", a: true },
+        { t: "Campuran itu adalah senyawa karena terdiri dari dua unsur.", a: false }],
+    e: "Sifat kedua zat tetap dan dapat dipisahkan secara fisik, tandanya hanya bercampur. Senyawa terbentuk bila unsur-unsur bereaksi dan terikat secara kimia." },
+  { ind: "B", lvl: "Pemahaman", t: "pg", q: "Manakah yang termasuk <b>campuran homogen</b>?",
+    o: ["Pasir dalam air", "Minyak dan air", "Tanah", "Air gula"], a: 3, e: "Air gula tampak seragam. Gula dan air tidak dapat dibedakan dengan mata." },
+  { ind: "B", lvl: "Penalaran", t: "pg", q: "Mengapa air mineral kemasan lebih tepat disebut campuran, bukan zat murni?",
+    o: ["karena mengandung mineral terlarut selain H₂O", "karena airnya berwarna", "karena dikemas dalam plastik", "karena dapat mendidih"], a: 0,
+    e: "Air murni hanya H₂O. Adanya mineral terlarut membuatnya campuran." },
+  { ind: "B", lvl: "Penerapan", t: "pg", q: "Pernyataan yang benar tentang garam dapur (NaCl) adalah ...",
+    o: ["campuran natrium dan klorin yang bisa disaring", "senyawa, karena Na dan Cl terikat secara kimia dengan perbandingan tetap", "unsur, karena berwarna putih", "campuran heterogen"], a: 1,
+    e: "NaCl punya perbandingan Na : Cl yang tetap dan sifatnya berbeda dari kedua unsurnya." },
+  { ind: "B", lvl: "Penerapan", t: "pgk", q: "Manakah pasangan materi dan golongannya yang <b>tepat</b>?",
+    o: ["Udara bersih: senyawa", "Emas: unsur", "Gula pasir: campuran", "Tanah: campuran heterogen", "Air laut: campuran homogen"], a: [1, 3, 4],
+    e: "Udara bersih adalah campuran gas, bukan senyawa. Gula pasir (sukrosa) adalah senyawa, bukan campuran. Pasangan lainnya tepat." }
+];
+
+/* Asesmen akhir: bentuk dan indikator setara dengan asesmen awal, konteks berbeda */
+const POST = [
+  { ind: "A", lvl: "Pemahaman", t: "pg",
+    stim: "Beberapa sifat belerang:<br>(1) berwarna kuning,<br>(2) mudah terbakar menghasilkan gas berbau menyengat,<br>(3) tidak larut dalam air,<br>(4) titik lelehnya 115 °C.",
+    q: "Sifat yang termasuk <b>sifat kimia</b> belerang ditunjukkan oleh nomor ...", o: ["(1)", "(2)", "(3)", "(4)"], a: 1,
+    e: "Mudah terbakar menghasilkan gas berbau menyengat berarti belerang berubah menjadi zat baru (sifat kimia). Warna, kelarutan, dan titik leleh dapat diamati atau diukur tanpa mengubah belerang menjadi zat lain (sifat fisik)." },
+  { ind: "A", lvl: "Penerapan", t: "pgk", q: "Manakah peristiwa berikut yang termasuk <b>perubahan fisik</b>?",
+    o: ["Kain basah menjadi kering saat dijemur", "Roti yang disimpan berhari-hari menjadi berjamur", "Batang tembaga ditempa menjadi lempengan pipih", "Kembang api menyala di udara", "Bensin dalam wadah terbuka lama-lama berkurang"], a: [0, 2, 4],
+    e: "Menjemur kain (menguap), menempa tembaga (berubah bentuk), dan bensin yang menguap tidak membentuk zat baru. Roti berjamur dan kembang api menghasilkan zat baru (perubahan kimia)." },
+  { ind: "A", lvl: "Penalaran", t: "bs",
+    stim: "Raka mengamati tiga peristiwa.<br><b>P:</b> sepotong es batu dibiarkan hingga menjadi air.<br><b>Q:</b> sebatang kapur tulis dimasukkan ke dalam cuka, lalu muncul gelembung gas.<br><b>R:</b> sesendok gula diaduk dalam teh panas hingga tidak tampak lagi.",
+    q: "Tentukan benar atau salah setiap pernyataan tentang pengamatan Raka.",
+    s: [{ t: "Peristiwa P adalah perubahan fisik karena zat penyusunnya tetap H₂O.", a: true },
+        { t: "Gelembung gas pada peristiwa Q menunjukkan terbentuknya zat baru sehingga Q adalah perubahan kimia.", a: true },
+        { t: "Peristiwa R adalah perubahan kimia karena gula menghilang dari pandangan.", a: false }],
+    e: "P hanya perubahan wujud (fisik). Pada Q muncul gas baru (kimia). Pada R gula hanya tersebar dalam air dan masih dapat diperoleh kembali dengan penguapan, jadi perubahan fisik." },
+  { ind: "A", lvl: "Penalaran", t: "pg",
+    stim: "Pisang mentah berwarna hijau, keras, dan rasanya sepat. Setelah disimpan beberapa hari, kulitnya menguning, dagingnya lunak, dan rasanya manis.",
+    q: "Pernyataan yang paling tepat tentang peristiwa tersebut adalah ...",
+    o: ["perubahan fisik karena pisang masih berbentuk pisang", "perubahan fisik karena hanya warna yang berubah", "perubahan kimia karena terbentuk zat baru yang ditandai perubahan warna, rasa, dan kelunakan", "perubahan kimia karena ukuran pisang berubah"], a: 2,
+    e: "Rasa manis dan tekstur lunak menunjukkan terbentuknya zat baru (misalnya gula sederhana dari pati). Bentuk yang masih sama tidak membuktikan perubahan itu fisik." },
+  { ind: "A", lvl: "Penerapan", t: "pg", q: "Air dan alkohol sama-sama cairan bening. Cara membedakan keduanya <b>tanpa mengubahnya menjadi zat lain</b> yang paling tepat adalah ...",
+    o: ["mengukur dan membandingkan titik didihnya", "membakar sedikit masing-masing lalu mengamati hasilnya", "mencampur keduanya dengan baking soda", "memanaskan keduanya hingga habis terbakar"], a: 0,
+    e: "Titik didih adalah sifat fisik: alkohol mendidih sekitar 78 °C dan air 100 °C. Membakar akan mengubah zat menjadi zat lain." },
+  { ind: "B", lvl: "Pemahaman", t: "pg", q: "Perhatikan benda berikut: grafit pensil (karbon), gula pasir, gas nitrogen, dan air sumur. Pasangan yang keduanya merupakan <b>unsur</b> adalah ...",
+    o: ["gula pasir dan gas nitrogen", "gula pasir dan air sumur", "grafit pensil dan air sumur", "grafit pensil dan gas nitrogen"], a: 3,
+    e: "Karbon (C) dan nitrogen (N₂) hanya tersusun dari satu jenis atom sehingga merupakan unsur. Gula pasir adalah senyawa dan air sumur adalah campuran." },
+  { ind: "B", lvl: "Penerapan", t: "pgk", q: "Manakah materi berikut yang tergolong <b>senyawa</b>?",
+    o: ["Gas oksigen", "Baking soda", "Air gula", "Gula pasir", "Besi"], a: [1, 3],
+    e: "Baking soda (NaHCO₃) dan gula pasir (sukrosa) tersusun dari beberapa unsur yang terikat secara kimia. Oksigen dan besi adalah unsur, sedangkan air gula adalah campuran." },
+  { ind: "B", lvl: "Penalaran", t: "bs",
+    stim: "Tiga sampel diuji.<br><b>Sampel K:</b> tampak seragam; bila diuapkan, tersisa padatan putih.<br><b>Sampel L:</b> tampak berlapis, minyak di atas dan air di bawah.<br><b>Sampel M:</b> serbuk putih; bila dipanaskan kuat, terurai menjadi arang hitam dan uap air.",
+    q: "Tentukan benar atau salah setiap pernyataan berikut.",
+    s: [{ t: "Sampel K adalah campuran homogen.", a: true },
+        { t: "Sampel L adalah campuran heterogen.", a: true },
+        { t: "Sampel M adalah unsur karena berupa serbuk putih.", a: false }],
+    e: "K tampak seragam dan komponennya dapat dipisahkan dengan penguapan (campuran homogen). L tampak berlapis (campuran heterogen). M dapat diuraikan menjadi zat yang lebih sederhana, jadi senyawa, bukan unsur." },
+  { ind: "B", lvl: "Penalaran", t: "pg", q: "Perunggu dibuat dari tembaga dan timah yang dilebur bersama dengan perbandingan yang dapat berbeda-beda. Perunggu tergolong ...",
+    o: ["unsur karena berupa logam", "senyawa karena dilebur", "campuran (paduan) karena perbandingan penyusunnya tidak tetap", "senyawa karena sifatnya berbeda dari tembaga"], a: 2,
+    e: "Perbandingan penyusun yang dapat berubah-ubah merupakan ciri campuran. Senyawa memiliki perbandingan unsur yang tetap." },
+  { ind: "B", lvl: "Penalaran", t: "pg", q: "Hidrogen (gas mudah terbakar) dan oksigen (gas pendukung pembakaran) bereaksi membentuk air (cairan yang justru memadamkan api). Kesimpulan yang tepat adalah ...",
+    o: ["air adalah campuran hidrogen dan oksigen", "air adalah senyawa yang sifatnya berbeda dari hidrogen dan oksigen", "air adalah unsur", "hidrogen dan oksigen hanya bercampur di dalam air"], a: 1,
+    e: "Sifat air sangat berbeda dari sifat hidrogen dan oksigen, tanda terbentuknya zat baru. Unsur-unsur yang terikat secara kimia membentuk senyawa." }
+];
+
+/* ---------- Bagan: pembangun SVG ---------- */
+function nd(id, x, y, w, h, cls, main, sub, p){
+  main = main || []; sub = sub || [];
+  const LM = 15, LS = 12, total = main.length * LM + sub.length * LS;
+  let cy = y + (h - total) / 2, out = "";
+  main.forEach(t => { out += `<text class="tm" x="${x + w / 2}" y="${cy + LM - 3.5}">${t}</text>`; cy += LM; });
+  sub.forEach(t => { out += `<text class="ts" x="${x + w / 2}" y="${cy + LS - 3}">${t}</text>`; cy += LS; });
+  return `<g class="nd ${cls}" id="${id}"${p ? ` data-p="${p}" role="button" tabindex="0" aria-label="${main.join(" ")}"` : ""}><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9"/>${out}</g>`;
+}
+const ed = (id, d) => `<path class="ed" id="${id}" d="${d}" marker-end="url(#arT)"/>`;
+function lbp(id, x, y, t, k){
+  const w = Math.round(t.length * 5.6 + 12);
+  return `<g class="lbp ${k}" id="${id}"><rect x="${x - w / 2}" y="${y - 8}" width="${w}" height="16" rx="8"/><text x="${x}" y="${y + 3.6}">${t}</text></g>`;
+}
+const LEAF = [
+  ["unsur", 40, "Unsur", ["1 jenis atom"], ["Au, Cu,", "O₂, C"]],
+  ["senyawa", 120, "Senyawa", ["≥2 unsur", "terikat kimia"], ["H₂O, NaCl,", "CO₂"]],
+  ["homogen", 200, "Homogen", ["tampak", "seragam"], ["air gula,", "udara"]],
+  ["heterogen", 280, "Heterogen", ["tampak", "berbeda"], ["tanah,", "sup"]]
+];
+function treeSVG(){
+  let s = `<svg viewBox="0 0 320 284" class="dg" id="tree" role="group" aria-label="Bagan penggolongan materi">`;
+  s += ed("te1", "M160 40 V58 H80 V85") + ed("te2", "M160 40 V58 H240 V85");
+  s += ed("te3", "M80 132 V152 H40 V173") + ed("te4", "M80 132 V152 H120 V173") + ed("te5", "M240 132 V152 H200 V173") + ed("te6", "M240 132 V152 H280 V173");
+  s += lbp("tl1", 120, 58, "1 jenis zat", "n") + lbp("tl2", 200, 58, "≥2 jenis zat", "n");
+  s += nd("t_materi", 110, 6, 100, 34, "root", ["Materi"]);
+  s += nd("t_tunggal", 20, 88, 120, 44, "tunggal", ["Zat tunggal"], ["tak bisa dipisah fisik"], "tunggal");
+  s += nd("t_campuran", 180, 88, 120, 44, "campuran", ["Campuran"], ["bisa dipisah fisik"], "campuran");
+  LEAF.forEach(([k, cx, nm, crit, ex]) => {
+    s += nd("t_" + k, cx - 35, 176, 70, 34, k, [nm], [], k);
+    crit.forEach((t, j) => { s += `<text class="tc" x="${cx}" y="${227 + j * 12}">${t}</text>`; });
+    ex.forEach((t, j) => { s += `<text class="te" x="${cx}" y="${258 + j * 12}">${t}</text>`; });
+  });
+  return s + `</svg>`;
+}
+function flowSVG(){
+  let s = `<svg viewBox="0 0 320 304" class="dg" id="flow" role="group" aria-label="Diagram alur menentukan golongan materi">`;
+  s += ed("e0", "M160 32 V49");
+  s += ed("e1L", "M160 98 V116 H80 V135") + ed("e1R", "M160 98 V116 H240 V135");
+  s += ed("e3L", "M80 188 V206 H40 V227") + ed("e3R", "M80 188 V206 H120 V227");
+  s += ed("e2L", "M240 188 V206 H200 V227") + ed("e2R", "M240 188 V206 H280 V227");
+  s += lbp("l1L", 120, 116, "Tidak", "t") + lbp("l1R", 200, 116, "Ya", "y");
+  s += lbp("l3L", 60, 206, "Tidak", "t") + lbp("l3R", 100, 206, "Ya", "y");
+  s += lbp("l2L", 220, 206, "Ya", "y") + lbp("l2R", 260, 206, "Tidak", "t");
+  s += nd("f_start", 100, 4, 120, 28, "start", ["Amati satu materi"]);
+  s += nd("f_q1", 35, 52, 250, 46, "q", ["Bisa dipisahkan dengan cara fisik?"], ["(disaring, magnet, diuapkan, dan sebagainya)"]);
+  s += nd("f_q3", 10, 138, 140, 50, "q", ["Bisa diuraikan", "secara kimia?"], ["(zat tunggal)"]);
+  s += nd("f_q2", 170, 138, 140, 50, "q", ["Tampak seragam?"], ["(campuran)"]);
+  LEAF.forEach(([k, cx, nm, , ex]) => {
+    s += nd("f_" + k, cx - 35, 230, 70, 34, k, [nm], [], k);
+    ex.forEach((t, j) => { s += `<text class="te" x="${cx}" y="${280 + j * 12}">${t}</text>`; });
+  });
+  return s + `</svg>`;
+}
+function kimiaSVG(){
+  let s = `<svg viewBox="0 0 320 184" class="dg" role="group" aria-label="Diagram alur menentukan perubahan fisik atau kimia">`;
+  s += ed("k0", "M160 32 V49");
+  s += ed("k1", "M160 92 V108 H80 V127") + ed("k2", "M160 92 V108 H240 V127");
+  s += lbp("kl1", 120, 108, "Tidak", "t") + lbp("kl2", 200, 108, "Ya", "y");
+  s += nd("k_s", 90, 4, 140, 28, "start", ["Amati perubahan zat"]);
+  s += nd("k_q", 50, 52, 220, 40, "q", ["Terbentuk zat baru?"], ["(sifatnya berbeda dari zat semula)"]);
+  s += nd("k_f", 10, 130, 140, 44, "fisik", ["Perubahan fisik"], ["es mencair, gula larut"]);
+  s += nd("k_k", 170, 130, 140, 44, "kimia", ["Perubahan kimia"], ["kayu terbakar, nasi basi"]);
+  return s + `</svg>`;
+}
+
+const PANEL = {
+  tunggal: { j: "Zat tunggal (zat murni)", d: "Materi yang <b>hanya terdiri dari satu jenis zat</b> dan tidak dapat dipisahkan dengan cara fisik. Zat tunggal ada dua macam: unsur dan senyawa.", c: ["Sifatnya tetap dan khas (titik didih dan titik leleh tertentu)", "Tidak bisa dipisahkan secara fisik", "Terdiri dari unsur atau senyawa"], ex: "Emas dan oksigen (unsur); air dan garam dapur (senyawa).", svg: false },
+  campuran: { j: "Campuran", d: "Materi yang tersusun dari <b>dua zat atau lebih</b> yang bercampur tanpa membentuk zat baru. Ada dua macam: campuran homogen dan heterogen.", c: ["Komponen mempertahankan sifat aslinya", "Perbandingan komponen tidak tetap", "Dapat dipisahkan dengan cara fisik"], ex: "Air laut, udara, tanah, sup.", svg: false },
+  unsur: { j: "Unsur", d: "Zat tunggal yang tersusun dari <b>satu jenis atom</b> dan tidak dapat diuraikan menjadi zat lebih sederhana melalui reaksi kimia biasa.", c: ["Tersusun dari satu jenis atom", "Tidak dapat diuraikan secara kimia", "Dilambangkan dengan simbol unsur (Au, Cu, Fe, O)"], ex: "Emas (Au) pada perhiasan, tembaga (Cu) pada kabel, besi (Fe) pada paku, oksigen (O₂) di udara, aluminium (Al) pada foil, karbon (C) pada grafit pensil.", cap: "Semua partikel sejenis (satu jenis atom)", svg: true },
+  senyawa: { j: "Senyawa", d: "Zat tunggal yang tersusun dari <b>dua unsur atau lebih</b> yang terikat secara kimia dengan perbandingan tetap.", c: ["Perbandingan unsur penyusunnya tetap", "Dapat diuraikan melalui reaksi kimia", "Sifatnya berbeda dari unsur penyusunnya", "Dilambangkan dengan rumus kimia (H₂O, NaCl)"], ex: "Air (H₂O), garam dapur (NaCl), gula (C₁₂H₂₂O₁₁), baking soda (NaHCO₃), karbon dioksida (CO₂). Natrium itu logam yang sangat reaktif dan klorin gas beracun, namun NaCl aman kita makan.", cap: "Atom berbeda terikat membentuk molekul yang sama", svg: true },
+  homogen: { j: "Campuran homogen (larutan)", d: "Campuran yang tampak <b>seragam</b>; komponennya tidak dapat dibedakan dengan mata.", c: ["Tampak satu fasa", "Komponen mempertahankan sifatnya", "Perbandingan komponen bebas", "Dipisahkan dengan cara fisik (penguapan, destilasi)"], ex: "Air gula, teh manis, udara bersih, air laut, alkohol 70%, kuningan.", cap: "Dua jenis partikel tersebar merata", svg: true },
+  heterogen: { j: "Campuran heterogen", d: "Campuran yang tampak <b>tidak seragam</b>; komponennya dapat dibedakan.", c: ["Terlihat ada bagian yang berbeda", "Komponen mempertahankan sifatnya", "Dipisahkan dengan cara fisik (saring, magnet, dekantasi, corong pisah)"], ex: "Tanah, pasir dalam air, minyak dan air, sup, granit. Susu dan santan tampak seragam, tetapi sebenarnya heterogen berskala mikroskopis (koloid); kamu akan mempelajarinya nanti.", cap: "Dua jenis partikel mengelompok sehingga bagiannya tampak berbeda", svg: true }
+};
+function particleSVG(kind){
+  const W = 280, H = 130, T = "#0f9d8a", A = "#f2b705", V = "#4c5fd5";
+  const c = (x, y, r, f) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${f}"/>`;
+  let g = "";
+  if(kind === "unsur"){
+    for(let r = 0; r < 3; r++) for(let k = 0; k < 7; k++) g += c(30 + k * 36 + (r % 2) * 10, 28 + r * 36, 12, T);
+  }else if(kind === "senyawa"){
+    for(let r = 0; r < 2; r++) for(let k = 0; k < 4; k++){
+      const x = 44 + k * 64, y = 36 + r * 56;
+      g += `<line x1="${x}" y1="${y}" x2="${x - 14}" y2="${y + 12}" stroke="#667" stroke-width="3"/><line x1="${x}" y1="${y}" x2="${x + 14}" y2="${y + 12}" stroke="#667" stroke-width="3"/>` + c(x, y, 12, V) + c(x - 14, y + 12, 8, T) + c(x + 14, y + 12, 8, T);
+    }
+  }else if(kind === "homogen"){
+    for(let r = 0; r < 3; r++) for(let k = 0; k < 7; k++) g += c(30 + k * 36 + (r % 2) * 10, 28 + r * 36, 11, ((r * 7 + k) * 5) % 3 === 0 ? A : T);
+  }else{
+    for(let r = 0; r < 3; r++) for(let k = 0; k < 7; k++) g += c(30 + k * 36 + (r % 2) * 10, 28 + r * 36, 11, (k < 3 || (k === 3 && r === 1)) ? T : A);
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" class="psvg" role="img" aria-label="Model partikel ${kind}"><rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="10" fill="#fff" stroke="#b9c9d4"/>${g}</svg>`;
+}
+const TRACE = {
+  emas: { n: "Emas 24 karat", st: [["Bisa dipisahkan dengan cara fisik?", 0], ["Bisa diuraikan secara kimia?", 0]], r: "unsur", note: "Emas murni hanya tersusun dari atom Au dan tidak bisa diuraikan lagi.", ids: ["f_start", "e0", "f_q1", "l1L", "e1L", "f_q3", "l3L", "e3L", "f_unsur"] },
+  garam: { n: "Garam dapur (NaCl)", st: [["Bisa dipisahkan dengan cara fisik?", 0], ["Bisa diuraikan secara kimia?", 1]], r: "senyawa", note: "Na dan Cl terikat secara kimia, jadi tidak bisa dipisahkan secara fisik. Lewat reaksi kimia, NaCl bisa diuraikan menjadi Na dan Cl₂.", ids: ["f_start", "e0", "f_q1", "l1L", "e1L", "f_q3", "l3R", "e3R", "f_senyawa"] },
+  air: { n: "Air murni (H₂O)", st: [["Bisa dipisahkan dengan cara fisik?", 0], ["Bisa diuraikan secara kimia?", 1]], r: "senyawa", note: "Air murni tidak bisa dipisahkan secara fisik, tetapi bisa diuraikan dengan listrik menjadi H₂ dan O₂.", ids: ["f_start", "e0", "f_q1", "l1L", "e1L", "f_q3", "l3R", "e3R", "f_senyawa"] },
+  laut: { n: "Air laut", st: [["Bisa dipisahkan dengan cara fisik?", 1], ["Tampak seragam?", 1]], r: "homogen", note: "Garam dapat dipisahkan dengan penguapan, dan air laut tampak seragam.", ids: ["f_start", "e0", "f_q1", "l1R", "e1R", "f_q2", "l2L", "e2L", "f_homogen"] },
+  udara: { n: "Udara bersih", st: [["Bisa dipisahkan dengan cara fisik?", 1], ["Tampak seragam?", 1]], r: "homogen", note: "Nitrogen, oksigen, dan gas lain dapat dipisahkan secara fisik, dan udara tampak seragam.", ids: ["f_start", "e0", "f_q1", "l1R", "e1R", "f_q2", "l2L", "e2L", "f_homogen"] },
+  tanah: { n: "Tanah kebun", st: [["Bisa dipisahkan dengan cara fisik?", 1], ["Tampak seragam?", 0]], r: "heterogen", note: "Pasir, humus, dan kerikil dapat dipisahkan secara fisik, dan bagian-bagiannya tampak berbeda.", ids: ["f_start", "e0", "f_q1", "l1R", "e1R", "f_q2", "l2R", "e2R", "f_heterogen"] }
+};
+const RNAME = { unsur: "Unsur", senyawa: "Senyawa", homogen: "Campuran homogen", heterogen: "Campuran heterogen" };
+function setHL(svg, ids){
+  svg.classList.toggle("has-hl", ids.length > 0);
+  svg.querySelectorAll(".hl").forEach(e => { e.classList.remove("hl"); if(e.classList.contains("ed")) e.setAttribute("marker-end", "url(#arT)"); });
+  ids.forEach(i => { const e = svg.querySelector("#" + i); if(!e) return; e.classList.add("hl"); if(e.classList.contains("ed")) e.setAttribute("marker-end", "url(#arH)"); });
+}
+
+/* ================= TAB ================= */
+const GRP = { buka: "Pembuka", tes: "Asesmen", m1: "Misi 1: sifat materi", m2: "Misi 2: klasifikasi materi", tutup: "Penutup" };
+const head = (t, lead) => `<div class="hd"><span class="mk" data-g="${TABS[cur].g}">${TABS[cur].sym}</span><div><h2>${t}</h2><p class="grp">${GRP[TABS[cur].g]}</p></div></div>${lead ? `<p class="lead">${lead}</p>` : ""}`;
+
+const TABS = [
+{ id: "beranda", sym: "Mu", label: "Mulai", g: "buka", kind: "content",
+  render(){
+    const u = S.user;
+    return `<div class="hero"><div class="bigtile" aria-hidden="true"><span class="n">10</span><span class="s">Ki</span><span class="m">Kimia</span></div>
+      <div><h1>Kimia itu dekat.</h1><p class="lead" style="margin:8px 0 0">Selidiki sifat dan penggolongan materi di sekitarmu, dari dapur sampai kebun.</p></div></div>
+    <section class="blk"><h3>Setelah belajar ini kamu bisa</h3><ul class="goals">
+      <li data-g="m1"><i>1</i><span>membedakan <b>sifat fisik</b> dan <b>sifat kimia</b> suatu materi dari fenomena sehari-hari,</span></li>
+      <li data-g="m2"><i>2</i><span>mengelompokkan materi di sekitarmu menjadi <b>unsur</b>, <b>senyawa</b>, atau <b>campuran</b> beserta alasannya,</span></li>
+      <li data-g="tutup"><i>+</i><span>melangkah lebih jauh: membaca label produk dan menjelaskan kasus nyata dengan penalaranmu sendiri.</span></li></ul></section>
+    <section class="blk"><h3>Urutan belajar</h3><ol class="path">
+      <li data-g="buka"><i>Mu</i><div><b>Sekitarku dan manfaat.</b> Hubungkan kimia dengan kehidupan sehari-hari.</div></li>
+      <li data-g="tes"><i>Aw</i><div><b>Asesmen awal.</b> Soal bentuk TKA untuk mengetahui titik awalmu.</div></li>
+      <li data-g="m1"><i>M1</i><div><b>Misi 1.</b> Sifat fisik dan sifat kimia, lab virtual, lalu latihan.</div></li>
+      <li data-g="m2"><i>M2</i><div><b>Misi 2.</b> Peta materi, klasifikasi, lalu latihan.</div></li>
+      <li data-g="tes"><i>Ak</i><div><b>Asesmen akhir.</b> Lihat seberapa jauh kamu berkembang.</div></li>
+      <li data-g="tutup"><i>Tn</i><div><b>Tantangan dan refleksi.</b> Untuk melangkah lebih jauh.</div></li></ol></section>
+    <div class="note"><p>Hasil tebakan, lab, latihan, asesmen, tantangan, dan refleksi terkirim ke gurumu. Latihan boleh diulang dan skor terbaik yang dicatat. Asesmen awal dan akhir hanya satu kali. Kerjakan sendiri dengan jujur.</p></div>
+    <div class="panelbox" id="idcard">${u ? `<h3>Halo, ${esc(u.nama)}.</h3><p>Kelas ${esc(u.kelas)}, nomor absen ${esc(u.absen)}.</p>
+      <button type="button" class="btn" id="lanjut">Lanjut belajar</button><button type="button" class="btn alt" id="ganti">Bukan aku? Ganti identitas</button>`
+      : `<h3>Isi identitasmu dulu</h3><p class="sm">Supaya hasil belajarmu tercatat atas namamu.</p>
+      <label for="nama">Nama lengkap</label><input id="nama" type="text" maxlength="60" autocomplete="name" placeholder="Nama lengkap">
+      <div class="grid2"><div><label for="kelas">Kelas</label><input id="kelas" type="text" maxlength="12" placeholder="mis. X-1"></div>
+      <div><label for="absen">Nomor absen</label><input id="absen" type="number" min="1" max="60" placeholder="mis. 12"></div></div>
+      <button type="button" class="btn" id="mulai">Mulai belajar</button>`}</div>`;
+  },
+  init(root){
+    const l = $("#lanjut", root); if(l) l.onclick = () => go(1);
+    const g = $("#ganti", root); if(g) g.onclick = () => { if(confirm("Ganti identitas akan menghapus kemajuan belajar di perangkat ini. Lanjutkan?")){ S = { user: null, done: {}, data: {} }; persist(); store.set("draft", {}); render(); } };
+    const m = $("#mulai", root);
+    if(m) m.onclick = () => {
+      const nama = $("#nama").value.trim(), kelas = $("#kelas").value.trim(), absen = $("#absen").value.trim();
+      if(nama.length < 3 || !kelas || !absen){ toast("Lengkapi nama, kelas, dan nomor absen ya"); return; }
+      S.user = { nama, kelas, absen }; S.done.beranda = true; persist(); go(1);
+    };
+  } },
+
+{ id: "apersepsi", sym: "Sk", label: "Sekitarku", g: "buka", kind: "activity",
+  render(){
+    return head("Apa yang sebenarnya terjadi?", "Tebak dulu tanpa takut salah. Tidak ada nilai di sini; nanti kita buktikan bersama.") +
+    `<div id="ap">${APERS.map((it, i) => `<div class="item" data-i="${i}"><div class="ihead"><span class="ico">${it.ico}</span><div><b>${it.t}</b></div></div>
+      <div class="choices">${APERS_OPT.map((o, k) => `<button type="button" class="chip" data-k="${k}">${o}</button>`).join("")}</div></div>`).join("")}</div>
+    <div class="note"><h3>Pertanyaan pemantik</h3><p><b>Apa bedanya es yang mencair dengan kayu yang terbakar?</b></p>
+      <textarea id="pem" maxlength="500" placeholder="Tuliskan dugaanmu dengan kata-katamu sendiri..."></textarea>
+      <button type="button" class="btn" id="kirimap">Kirim tebakanku</button><div id="st"></div></div>`;
+  },
+  init(root){
+    root.querySelectorAll("#ap .item").forEach(card => card.querySelectorAll(".chip").forEach(b => b.onclick = () => {
+      card.querySelectorAll(".chip").forEach(x => x.classList.remove("sel")); b.classList.add("sel"); card.dataset.sel = b.dataset.k;
+    }));
+    $("#kirimap").onclick = async () => {
+      const cards = [...root.querySelectorAll("#ap .item")];
+      if(cards.some(c => c.dataset.sel === undefined)){ toast("Pilih tebakan untuk semua kejadian dulu ya"); return; }
+      const teks = $("#pem").value.trim();
+      if(teks.length < 5){ toast("Tuliskan dugaanmu pada pertanyaan pemantik"); return; }
+      $("#kirimap").disabled = true;
+      const detail = { tebakan: cards.map((c, i) => ({ kejadian: APERS[i].t, tebak: +c.dataset.sel })), pemantik: teks };
+      const st = await kirim("apersepsi", null, null, detail);
+      $("#st").innerHTML = statusHTML(st) + `<p>Tebakanmu sudah dicatat. Simpan rasa penasaranmu, kita buktikan di tab berikutnya. <button type="button" class="btn" id="go">Lanjut</button></p>`;
+      $("#go").onclick = () => go(cur + 1);
+    };
+  } },
+
+{ id: "manfaat", sym: "Mf", label: "Manfaat", g: "buka", kind: "content",
+  render(){
+    return head("Kenapa kita perlu mempelajari ini?", "Ketuk kartu untuk melihat manfaatnya dalam hidup sehari-hari.") +
+    reveal("Menjaga keselamatan di rumah", "Mencampur pemutih dengan pembersih lain bisa menghasilkan gas berbahaya. Dengan memahami perubahan kimia, kamu tahu bahan mana yang aman dicampur dan mana yang tidak.") +
+    reveal("Memahami label produk", "Komposisi pada kemasan menyebut unsur, senyawa, dan campuran. Kamu jadi tahu apa yang kamu makan, minum, dan pakai.") +
+    reveal("Mencegah kerusakan benda", "Pagar, atap seng, dan sepeda bisa berkarat. Karat adalah perubahan kimia, dan memahaminya membantu kita melindungi benda dengan cat atau pelapis.") +
+    reveal("Memilah dan mengolah sampah", "Banyak sampah adalah campuran. Mengetahui sifat fisik bahan, seperti magnetis atau tidak, mengapung atau tenggelam, memudahkan pemisahan dan daur ulang.") +
+    reveal("Mendapatkan air bersih", "Air sumber adalah campuran. Ia dimurnikan dengan pemisahan fisik seperti penyaringan, pengendapan, dan penyulingan.") +
+    reveal("Dasar untuk kimia selanjutnya", "Reaksi kimia, ikatan, hingga hitungan kimia semuanya dimulai dari membedakan sifat zat dan menggolongkan materi.") +
+    `<div class="note"><h3>Setelah ini kamu bisa</h3><ul class="plain"><li>menjelaskan <i>mengapa</i> suatu perubahan disebut fisik atau kimia, bukan sekadar menebak,</li><li>menentukan apakah suatu benda unsur, senyawa, atau campuran dengan alasan yang masuk akal.</li></ul></div>`;
+  },
+  init(root){ bindReveal(root); } },
+
+{ id: "asesmen_awal", sym: "Aw", label: "Asesmen awal", g: "tes", kind: "activity",
+  render(){ return head("Asesmen awal", "Untuk mengetahui titik awalmu sebelum belajar.") + `<div id="tka"></div>`; },
+  init(){ initTKA({ id: "asesmen_awal", items: PRE, mode: "pre", intro: "Asesmen ini bukan untuk menghakimi. Gurumu memakainya untuk melihat bagian mana yang perlu diperkuat. Kerjakan sendiri dan jujur; jika belum tahu, pilih jawaban yang menurutmu paling masuk akal." }); } },
+
+{ id: "fisik", sym: "Fs", label: "Sifat fisik", g: "m1", kind: "content",
+  render(){
+    return head("Sifat fisik dan perubahan fisik") +
+    `<div class="note"><h3>Apa itu materi?</h3><p>Materi adalah segala sesuatu yang <b>memiliki massa</b> dan <b>menempati ruang</b>. Batu, air, bahkan udara yang tak terlihat adalah materi.</p></div>
+    <section class="blk"><h3>Sifat fisik</h3><p>Sifat yang dapat <b>diamati atau diukur tanpa mengubah zat itu menjadi zat lain</b>.</p>
+      <ul class="plain"><li>Wujud, warna, dan bau (di lab, jangan mencium atau mencicipi bahan sembarangan)</li><li>Titik leleh dan titik didih</li><li>Massa jenis dan kekerasan</li><li>Kelarutan dalam air</li><li>Daya hantar listrik dan panas, serta kemagnetan</li></ul></section>
+    <section class="blk"><h3>Perubahan fisik</h3><p>Perubahan yang <b>tidak menghasilkan zat baru</b>. Yang berubah hanya wujud, bentuk, atau ukuran.</p>
+      <p class="sm">Contoh: melebur, membeku, menguap, mengembun, melarut, menyobek, menghancurkan.</p></section>
+    <section class="blk"><h3>Sifat fisik di sekitar kita</h3>
+    ${reveal("Tembaga", "Mengilap dan menghantarkan listrik dengan baik, sehingga dipakai sebagai kabel.")}
+    ${reveal("Alkohol (hand sanitizer)", "Mudah menguap, sehingga hand sanitizer cepat kering di tangan.")}
+    ${reveal("Minyak goreng", "Massa jenisnya lebih kecil dari air, sehingga mengapung di atas air.")}
+    ${reveal("Gula", "Larut dalam air. Gula yang hilang dalam teh tidak berubah menjadi zat lain; manisnya tetap terasa.")}</section>
+    <section class="blk"><h3>Coba sendiri: pasangkan</h3><p class="sm">Pilih sifat fisik yang paling sesuai untuk setiap kejadian.</p><div id="match"></div></section>`;
+  },
+  init(root){
+    bindReveal(root);
+    const rows = [["Kabel listrik dari tembaga", 2], ["Hand sanitizer cepat kering di tangan", 0], ["Minyak goreng mengapung di atas air", 3], ["Gula hilang saat diaduk dalam teh", 1]];
+    const opt = ["mudah menguap", "larut dalam air", "menghantarkan listrik dengan baik", "massa jenis lebih kecil daripada air"];
+    $("#match").innerHTML = rows.map((r, i) => `<div class="matchrow" data-i="${i}"><div>${r[0]}</div><select aria-label="${r[0]}"><option value="">Pilih sifat fisik...</option>${opt.map((o, k) => `<option value="${k}">${o}</option>`).join("")}</select></div>`).join("");
+    root.querySelectorAll(".matchrow select").forEach(s => s.onchange = () => {
+      const row = s.parentElement, i = +row.dataset.i;
+      row.classList.remove("ok", "bad"); if(s.value === "") return;
+      row.classList.add(+s.value === rows[i][1] ? "ok" : "bad");
+    });
+  } },
+
+{ id: "kimia", sym: "Km", label: "Sifat kimia", g: "m1", kind: "content",
+  render(){
+    return head("Sifat kimia dan perubahan kimia") +
+    `<section class="blk" style="margin-top:6px"><h3>Sifat kimia</h3><p>Kemampuan suatu zat untuk <b>berubah menjadi zat lain</b> (bereaksi). Sifat ini baru tampak ketika terjadi reaksi.</p>
+      <ul class="plain"><li>Mudah terbakar (bensin, kertas)</li><li>Mudah berkarat (besi)</li><li>Bereaksi dengan asam (kapur atau baking soda dengan cuka)</li><li>Mudah membusuk atau basi (nasi, buah)</li><li>Tidak mudah bereaksi (emas tidak berkarat)</li></ul></section>
+    <section class="blk"><h3>Fisik atau kimia? Ikuti panahnya</h3>
+      <p>Satu pertanyaan menentukan semuanya: <b>apakah terbentuk zat baru?</b></p>${kimiaSVG()}</section>
+    <section class="blk"><h3>Ciri-ciri perubahan kimia</h3><p>Petunjuk yang bisa kamu amati saat terbentuk zat baru:</p>
+      <ul class="plain"><li>Muncul gas atau gelembung</li><li>Terbentuk endapan</li><li>Warna berubah</li><li>Suhu berubah (panas atau dingin)</li><li>Muncul nyala atau cahaya</li></ul></section>
+    <div class="note warn"><h3>Awas jebakan</h3><p>Ciri-ciri di atas hanyalah <b>petunjuk</b>, bukan bukti mutlak. Air mendidih juga bergelembung, tetapi gelembungnya uap air (perubahan fisik). Bukti utama perubahan kimia adalah <b>terbentuknya zat baru</b>.</p></div>
+    <div class="two"><div class="box f"><b>Perubahan fisik</b><ul class="plain"><li>Tidak ada zat baru</li><li>Umumnya bisa dikembalikan</li><li>Contoh: es mencair, gula larut, kertas disobek</li></ul></div>
+    <div class="box k"><b>Perubahan kimia</b><ul class="plain"><li>Terbentuk zat baru</li><li>Umumnya sulit dikembalikan</li><li>Contoh: kayu terbakar, besi berkarat, nasi basi</li></ul></div></div>
+    <div class="note"><h3>Lilin: satu benda, dua perubahan</h3><p>Lilin <b>meleleh</b> adalah perubahan fisik. Lilin <b>terbakar</b> adalah perubahan kimia. Yang menentukan bukan bendanya, tetapi apakah <i>terbentuk zat baru</i>.</p></div>`;
+  } },
+
+{ id: "lab", sym: "Lb", label: "Lab virtual", g: "m1", kind: "activity",
+  render(){
+    return head("Lab pengamatan virtual", "Baca pengamatan di setiap kegiatan, tentukan jenis perubahannya, lalu pilih ciri yang kamu temukan bila perubahannya kimia.") +
+    `<div class="note"><p><b>Panduan:</b> tanyakan pada dirimu, <i>“Apakah terbentuk zat baru?”</i></p></div>` +
+    sorterHTML(LAB, ["Perubahan fisik", "Perubahan kimia"], { evid: true, col: ["fisik", "kimia"] });
+  },
+  init(){ initSorter("lab", LAB, ["Perubahan fisik", "Perubahan kimia"], { evid: true, col: ["fisik", "kimia"] }); } },
+
+{ id: "kuis1", sym: "L1", label: "Latihan TKA 1", g: "m1", kind: "activity",
+  render(){ return head("Latihan TKA 1: sifat dan perubahan materi", `${LAT1.length} soal berformat TKA dengan umpan balik langsung. Boleh diulang.`) + `<div id="tka"></div>`; },
+  init(){ initTKA({ id: "kuis1", items: LAT1, mode: "latihan" }); } },
+
+{ id: "peta", sym: "Pt", label: "Peta materi", g: "m2", kind: "content",
+  render(){
+    return head("Peta penggolongan materi", "Ikuti panah dari atas ke bawah. Ketuk kotak mana pun untuk membaca penjelasannya.") +
+    `${treeSVG()}<div id="panel"></div>
+    <section class="blk"><h3>Alur menentukan golongan suatu materi</h3>
+      <p>Jawab pertanyaan dari atas dan ikuti panah <b>Ya</b> atau <b>Tidak</b> sampai ke golongan akhir. Pilih sebuah benda untuk melihat jalurnya menyala.</p>
+      ${flowSVG()}
+      <div><button type="button" class="chip mini" data-t="reset">Hapus jalur</button>${Object.keys(TRACE).map(k => `<button type="button" class="chip mini" data-t="${k}">${TRACE[k].n}</button>`).join("")}</div>
+      <div id="trace" class="panelbox hidden"></div></section>
+    <div class="note warn"><h3>Miskonsepsi yang sering muncul</h3><ul class="plain"><li>“Air itu unsur.” <b>Bukan</b>, air adalah senyawa H₂O.</li><li>“Semua bahan kimia itu berbahaya.” <b>Tidak</b>, air dan garam juga bahan kimia.</li><li>“Campuran dan senyawa itu sama.” <b>Beda</b>, senyawa terikat secara kimia dan perbandingannya tetap.</li></ul></div>`;
+  },
+  init(root){
+    const show = k => {
+      const p = PANEL[k];
+      root.querySelectorAll("#tree .nd[data-p]").forEach(b => b.classList.toggle("sel", b.dataset.p === k));
+      $("#panel").innerHTML = `<div class="panelbox fade"><h3>${p.j}</h3><p>${p.d}</p>${p.svg ? particleSVG(k) + `<div class="legend">${p.cap}</div>` : ""}
+        <p><b>Ciri-ciri:</b></p><ul class="plain">${p.c.map(x => `<li>${x}</li>`).join("")}</ul><p><b>Contoh:</b> ${p.ex}</p></div>`;
+    };
+    root.querySelectorAll(".nd[data-p]").forEach(b => {
+      b.onclick = () => show(b.dataset.p);
+      b.onkeydown = e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); show(b.dataset.p); } };
+    });
+    show("unsur");
+    const flow = $("#flow"), tr = $("#trace");
+    root.querySelectorAll("[data-t]").forEach(b => b.onclick = () => {
+      root.querySelectorAll("[data-t]").forEach(x => x.classList.remove("sel"));
+      if(b.dataset.t === "reset"){ setHL(flow, []); tr.classList.add("hidden"); return; }
+      b.classList.add("sel");
+      const t = TRACE[b.dataset.t]; setHL(flow, t.ids);
+      tr.classList.remove("hidden");
+      tr.innerHTML = `<h3>${t.n}</h3><ol class="steps">${t.st.map(s => `<li>${s[0]} <b>${s[1] ? "Ya" : "Tidak"}</b></li>`).join("")}</ol><p>Golongannya: <b>${RNAME[t.r]}</b>. ${t.note}</p>`;
+    });
+  } },
+
+{ id: "sortir", sym: "Kl", label: "Klasifikasi", g: "m2", kind: "activity",
+  render(){
+    return head("Misi klasifikasi", "Golongkan setiap materi menjadi unsur, senyawa, atau campuran, lalu tuliskan alasan singkatmu.") +
+    `<div class="note"><p><b>Petunjuk:</b> pakai alur di tab Peta materi. Tanyakan: bisa dipisahkan secara fisik? Bisa diuraikan secara kimia?</p></div>` +
+    sorterHTML(SORT, ["Unsur", "Senyawa", "Campuran"], { reason: true, col: ["unsur", "senyawa", "campuran"] });
+  },
+  init(){ initSorter("sortir", SORT, ["Unsur", "Senyawa", "Campuran"], { reason: true, col: ["unsur", "senyawa", "campuran"] }); } },
+
+{ id: "kuis2", sym: "L2", label: "Latihan TKA 2", g: "m2", kind: "activity",
+  render(){ return head("Latihan TKA 2: klasifikasi materi", `${LAT2.length} soal berformat TKA dengan umpan balik langsung. Boleh diulang.`) + `<div id="tka"></div>`; },
+  init(){ initTKA({ id: "kuis2", items: LAT2, mode: "latihan" }); } },
+
+{ id: "asesmen_akhir", sym: "Ak", label: "Asesmen akhir", g: "tes", kind: "activity",
+  render(){ return head("Asesmen akhir", "Saatnya melihat seberapa jauh kamu berkembang.") + `<div id="tka"></div>`; },
+  init(){ initTKA({ id: "asesmen_akhir", items: POST, mode: "post", intro: "Soal-soal ini setara dengan asesmen awal, tetapi konteksnya berbeda. Setelah dikirim, kamu bisa melihat skor, perbandingan dengan asesmen awal, dan pembahasan tiap soal." }); } },
+
+{ id: "tantangan", sym: "Tn", label: "Tantangan", g: "tutup", kind: "activity",
+  render(){
+    return head("Tantangan: detektif kimia", "Untuk kamu yang ingin melangkah lebih jauh. Isi sebanyak yang kamu bisa (minimal satu).") +
+    `<section class="blk" style="margin-top:6px"><h3>1. Detektif dapur</h3><p>Pilih <b>tiga benda</b> di rumahmu. Untuk tiap benda tulis: golongannya (unsur, senyawa, atau campuran) dengan alasan, <b>satu sifat fisik</b>, dan <b>satu sifat kimia</b>.</p>
+      <textarea id="t1" maxlength="1500" placeholder="Contoh: Minyak goreng: campuran, karena ..."></textarea>
+      ${reveal("Petunjuk", "Lihat label kemasan. Jika ada banyak komponen yang disebut, kemungkinan besar benda itu campuran.", "Butuh petunjuk?")}</section>
+    <section class="blk"><h3>2. Studi kasus: emas</h3><p>Toko emas menjual emas 24 karat dan 22 karat. Menurutmu, mana yang lebih tepat disebut unsur dan mana yang campuran? Jelaskan alasanmu.</p>
+      <textarea id="t2" maxlength="1500" placeholder="Tuliskan penalaranmu..."></textarea>
+      ${reveal("Petunjuk", "Karat menunjukkan kadar emas. Emas 24 karat hampir murni; angka karat yang lebih rendah berarti dicampur logam lain.", "Butuh petunjuk?")}</section>
+    <section class="blk"><h3>3. Buktikan</h3><p>Seorang temanmu bilang, “Besi berkarat itu perubahan fisik karena besinya masih ada.” Setujukah kamu? Rancang <b>satu cara</b> atau pengamatan untuk membuktikan pendapatmu.</p>
+      <textarea id="t3" maxlength="1500" placeholder="Tuliskan jawaban dan buktinya..."></textarea>
+      ${reveal("Petunjuk", "Bandingkan sifat karat dengan sifat besi: warna, kekerasan, dan kemagnetan. Apakah mereka zat yang sama?", "Butuh petunjuk?")}</section>
+    <button type="button" class="btn" id="kt">Kirim jawaban tantangan</button><div id="st"></div>`;
+  },
+  init(root){
+    bindReveal(root);
+    $("#kt").onclick = async () => {
+      const t = ["t1", "t2", "t3"].map(k => $("#" + k).value.trim());
+      if(!t.some(x => x.length >= 15)){ toast("Isi minimal satu tantangan (minimal 15 huruf)"); return; }
+      $("#kt").disabled = true;
+      const st = await kirim("tantangan", null, null, { t1: t[0], t2: t[1], t3: t[2] });
+      $("#st").innerHTML = statusHTML(st) + `<button type="button" class="btn" id="go">Lanjut ke refleksi</button>`;
+      $("#go").onclick = () => go(cur + 1);
+    };
+  } },
+
+{ id: "refleksi", sym: "Rf", label: "Refleksi", g: "tutup", kind: "activity",
+  render(){
+    const best = k => S.data[k] && S.data[k].maks ? pct(S.data[k].skor, S.data[k].maks) : null;
+    const show = k => best(k) === null ? "belum dikerjakan" : best(k) + "%";
+    const ap = S.data.apersepsi && S.data.apersepsi.detail ? S.data.apersepsi.detail.tebakan : null;
+    const rate = `<option value="">Pilih...</option><option value="1">1. Belum paham</option><option value="2">2. Masih ragu</option><option value="3">3. Paham</option><option value="4">4. Bisa mengajarkan ke teman</option>`;
+    const bg = [
+      ["Ps", "Pengamat sifat", (best("lab") || 0) >= 80 && (best("kuis1") || 0) >= 80, "m1"],
+      ["Pm", "Penata materi", (best("sortir") || 0) >= 80 && (best("kuis2") || 0) >= 80, "m2"],
+      ["Mr", "Meroket", best("asesmen_awal") !== null && best("asesmen_akhir") !== null && best("asesmen_akhir") > best("asesmen_awal"), "tes"],
+      ["Pn", "Penantang", !!S.done.tantangan, "tutup"]
+    ];
+    return head("Refleksi dan rangkuman") +
+    `<section class="blk" style="margin-top:6px"><h3>Capaianmu</h3><table><tr><th>Kegiatan</th><th>Skor terbaik</th></tr>
+      <tr><td>Asesmen awal</td><td>${show("asesmen_awal")}</td></tr><tr><td>Lab virtual</td><td>${show("lab")}</td></tr>
+      <tr><td>Latihan TKA 1</td><td>${show("kuis1")}</td></tr><tr><td>Misi klasifikasi</td><td>${show("sortir")}</td></tr>
+      <tr><td>Latihan TKA 2</td><td>${show("kuis2")}</td></tr><tr><td>Asesmen akhir</td><td>${show("asesmen_akhir")}</td></tr></table>
+      <div class="badges">${bg.map(b => `<div class="badge ${b[2] ? "got" : ""}" data-g="${b[3]}"><i>${b[0]}</i><span>${b[1]}</span></div>`).join("")}</div></section>
+    ${ap ? `<section class="blk"><h3>Kembali ke tebakan awalmu</h3><table><tr><th>Kejadian</th><th>Tebakanku</th><th>Sebenarnya</th></tr>${ap.map((x, i) => `<tr><td>${APERS[i].t}</td><td>${x.tebak === 2 ? "Belum tahu" : x.tebak === 0 ? "Zat baru" : "Zat sama"}</td><td>${APERS[i].a === 0 ? "Zat baru (kimia)" : "Zat sama (fisik)"}</td></tr>`).join("")}</table></section>` : ""}
+    <section class="blk"><h3>Refleksiku</h3>
+      <label for="s1">Aku merasa bisa membedakan sifat fisik dan sifat kimia suatu materi</label><select id="s1">${rate}</select>
+      <label for="s2">Aku merasa bisa mengklasifikasikan materi menjadi unsur, senyawa, atau campuran</label><select id="s2">${rate}</select>
+      <label for="r1">3 hal baru yang kupelajari</label><textarea id="r1" maxlength="800"></textarea>
+      <label for="r2">2 hal yang masih membuatku bingung</label><textarea id="r2" maxlength="800"></textarea>
+      <label for="r3">1 hal yang ingin kucoba atau kuamati di rumah</label><textarea id="r3" maxlength="800"></textarea>
+      <button type="button" class="btn" id="kr">Kirim refleksi</button><div id="st"></div></section>`;
+  },
+  init(){
+    $("#kr").onclick = async () => {
+      const s1 = $("#s1").value, s2 = $("#s2").value, r1 = $("#r1").value.trim(), r2 = $("#r2").value.trim(), r3 = $("#r3").value.trim();
+      if(!s1 || !s2 || r1.length < 5){ toast("Isi kedua penilaian diri dan minimal refleksi nomor 1"); return; }
+      $("#kr").disabled = true;
+      const st = await kirim("refleksi", null, null, { paham_sifat: +s1, paham_klasifikasi: +s2, hal_baru: r1, masih_bingung: r2, ingin_coba: r3 });
+      $("#st").innerHTML = statusHTML(st) + `<div class="note"><h3>Terima kasih, ${esc(S.user.nama)}.</h3><p>Kamu sudah menyelesaikan seluruh media. Teruslah penasaran dengan kimia di sekitarmu.</p>${CONFIG.LINK_CLASSROOM ? `<a class="btn" href="${esc(CONFIG.LINK_CLASSROOM)}" target="_blank" rel="noopener">Buka Google Classroom</a>` : ""}</div>`;
+      confetti();
+    };
+  } }
+];
+
+/* ================= NAVIGASI ================= */
+let cur = 0;
+function renderChrome(){
+  $("#who").textContent = S.user ? S.user.nama + ", " + S.user.kelas : "";
+  const nav = $("#tiles");
+  nav.innerHTML = TABS.map((t, i) => `<button type="button" class="tile${i === cur ? " on" : ""}${S.done[t.id] ? " done" : ""}" data-g="${t.g}" data-i="${i}" title="${t.label}" aria-label="${i + 1}. ${t.label}"${i === cur ? ' aria-current="page"' : ""}${i > 0 && !S.user ? " disabled" : ""}><span class="n">${i + 1}</span><span class="s">${t.sym}</span><span class="ck">✓</span></button>`).join("");
+  nav.querySelectorAll(".tile").forEach(b => b.onclick = () => go(+b.dataset.i));
+  const a = nav.querySelector(".on"); if(a) nav.scrollLeft = a.offsetLeft - nav.clientWidth / 2 + a.offsetWidth / 2;
+  const n = TABS.filter(t => S.done[t.id]).length;
+  $("#crumb").innerHTML = `<b>${cur + 1}. ${TABS[cur].label}</b>`;
+  $("#proglabel").textContent = n + " dari " + TABS.length + " selesai";
+  $("#where").textContent = (cur + 1) + " / " + TABS.length;
+  $("#prev").disabled = cur === 0; $("#next").disabled = cur === TABS.length - 1;
+}
+function render(){
+  if(CLEAN){ CLEAN(); CLEAN = null; }
+  const t = TABS[cur];
+  if(t.kind === "content" && S.user){ S.done[t.id] = true; persist(); }
+  const v = $("#view"); v.dataset.g = t.g;
+  v.innerHTML = `<div class="fade">${t.render()}</div>`;
+  if(t.init) t.init(v);
+  renderChrome();
+}
+function go(i){
+  if(i > 0 && !S.user){ toast("Isi identitasmu dulu di tab Mulai ya"); i = 0; }
+  cur = Math.max(0, Math.min(TABS.length - 1, i));
+  render(); window.scrollTo({ top: 0, behavior: "smooth" });
+}
+$("#prev").onclick = () => go(cur - 1);
+$("#next").onclick = () => go(cur + 1);
+$("#credit").textContent = [CONFIG.GURU, CONFIG.SEKOLAH].filter(Boolean).join(", ");
+render(); flushQueue();
+</script>
+</body>
+</html>
